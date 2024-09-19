@@ -1,8 +1,8 @@
 ---
 title: Found Audio
 publishDate: 2022-03-02 00:00:00
-img: /assets/stock-1.jpg
-img_alt: Iridescent ripples of a bright blue and pink liquid
+img: /assets/found-audio.png
+img_alt: Found audio homepage screenshot
 description: |
   Found Audio is a lossless audio streaming service for all, but especially your inner audiophile.
 tags:
@@ -11,25 +11,32 @@ tags:
   - Media
 ---
 
-## Level-two heading
+Experience the lossless audio soundscapes at https://www.foundaudio.club. Streaming at 1411kb/s, 10x better than Soundcloud's 128kb/s.
 
-> Tell me and I forget. Teach me and I remember. Involve me and I learn.
+## Inception
 
-Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a> makes people happy. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla pharetra diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare.
+> I was fed up with the poor streaming quality of Soundcloud and couldn't find an alternative long format audio streaming site that would stream at lossless bitrates.
 
-Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget gravida cum sociis natoque penatibus. Cras fermentum odio eu feugiat pretium nibh. Proin nibh nisl condimentum id venenatis. Porta nibh venenatis cras sed felis eget velit. Id diam vel quam elementum pulvinar etiam non.
+Like many great projects, they came out of solving an issue for oneself. This is very much one of those cases. I wanted to stream my long format, multiple Gigabyte recorded audio files at the same bitrate they were recorded at. However I could not find a platform that offered such a service.
 
-### Level-three heading
+### Existing Solutions
 
-Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut sem viverra aliquet eget sit amet. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra. Viverra accumsan in nisl nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl pretium fusce.
+The leading platforms, Mixcloud and Soundcloud, both stream at an abismal 128kb/s. That did not work for audio that was recorded at 1411kb/s.
 
-### Level-three heading
+The streaming bit rate was analyzed with `ffprobe` for the exact same audio file between Mixcloud and Found Audio's backend object store, S3.
 
-Sed pulvinar porttitor mi in ultricies. Etiam non dolor gravida eros pulvinar pellentesque et dictum ex. Proin eu ornare ligula, sed condimentum dui. Vivamus tincidunt tellus mi, sed semper ipsum pharetra a. Suspendisse sollicitudin at sapien nec volutpat. Etiam justo urna, laoreet ac lacus sed, ultricies facilisis dolor. Integer posuere, metus vel viverra gravida, risus elit ornare magna, id feugiat erat risus ullamcorper libero. Proin vitae diam auctor, laoreet lorem vitae, varius tellus.
+![Mixcloud's bitrate](/public/assets/found-audio-ffprobe-mixcloud.png)
+_Mixcloud's 128kb/s birate_
 
-Aenean pretium purus augue, ut bibendum erat convallis quis. Cras condimentum quis velit ac mollis. Suspendisse non purus fringilla, venenatis nisl porta, finibus odio. Curabitur aliquet metus faucibus libero interdum euismod. Morbi sed magna nisl. Morbi odio nibh, facilisis vel sapien eu, tempus tincidunt erat. Nullam erat velit, sagittis at purus quis, tristique scelerisque tortor. Pellentesque lacinia tortor id est aliquam viverra. Vestibulum et diam ac ipsum mollis fringilla.
+![Found Audio bitrate](/public/assets/found-audio-ffprobe.png)
+_Found Audio's 1411kb/s birate_
 
-#### Level-four heading
+### Website
 
-- We noted this
-- And also this other point
+With the proof of concept put together I was pleased to have a way to stream my recorded audio files at lossless bit rates. However as I was sharing the streaming links with friends they wanted to be have access to the same streaming improvements for their audio files. It was clear a web interface was the next step.
+
+Not being a front end web developer, opted to go with Svelte for the framework thanks to its simplicity.
+
+### Final Touches
+
+Throwing a Cloudfront in front of S3, the object store, was a trivial as typing this sentce but made a tangible difference to the media's loading speed.
