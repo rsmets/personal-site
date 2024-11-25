@@ -1,18 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
   <!-- Background -->
-  <rect width="128" height="128" fill="#000" rx="16" />
+  <rect width="128" height="128" fill="#000" />
 
   <!-- Letter R -->
-  <path d="M40 36 H60 A12 12 0 0 1 72 48 V64 A12 12 0 0 1 60 76 H40 Z M40 36 V76 L70 104" fill="#FFF" />
+  <text x="20" y="80" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="url(#pattern)">
+    R
+  </text>
 
   <!-- Letter S -->
-  <path d="M80 48 C80 40, 96 40, 96 48 C96 56, 80 56, 80 64 C80 72, 96 72, 96 80 C96 88, 80 88, 80 80" fill="#FFF" />
+  <text x="70" y="80" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="url(#pattern)">
+    S
+  </text>
 
-  <style>
-    rect, path { transition: fill 0.3s ease, stroke 0.3s ease; }
-    @media (prefers-color-scheme: dark) {
-      rect { fill: #FFF; }
-      path { fill: #000; }
-    }
-  </style>
+  <!-- Pattern Definition -->
+  <defs>
+    <pattern id="pattern" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M0 0 L8 8 M8 0 L0 8" stroke="#FFF" stroke-width="1" />
+    </pattern>
+  </defs>
 </svg>
