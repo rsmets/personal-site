@@ -39,4 +39,4 @@ Not being a front end web developer, opted to go with Svelte for the framework t
 
 ### Final Touches
 
-Throwing a Cloudfront in front of S3, the object store, was a trivial as typing this sentce but made a tangible difference to the media's loading speed.
+Throwing a Cloudfront in front of S3, the object store, was a trivial as typing this sentence but made a tangible difference to the media's loading speed.
