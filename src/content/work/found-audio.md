@@ -11,7 +11,7 @@ tags:
   - Media
 ---
 
-Experience the lossless audio soundscapes at https://www.foundaudio.club. Streaming at 1411kb/s, 10x better than Soundcloud's 128kb/s.
+Experience the lossless audio soundscapes at of Found Audio at https://www.foundaudio.club. Streaming at 1411kb/s, 10x better than Soundcloud's 128kb/s.
 
 ## Inception
 
