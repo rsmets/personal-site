@@ -43,7 +43,7 @@ _A photo from 2023's Christmas Dinner, taken in the app's long-running mode._
 
 https://github.com/rsmets/ai-narrator-simple-webapp
 
-A talented coworker decided to port the application to JavaScript, enabling it to be deployed as a web app. This implementation relied on Socket.io to stream the audio to the client while the webcam captured images. The images were converted to Base64 and sent to the server, where the same processing pipeline as the Python app was executed on the Node.js backend.
+A talented coworker decided to port the application to JavaScript, enabling it to be deployed as a web app. This implementation relied on Socket.io to stream the audio to the client while the webcam captured images. The images were converted to Base64 and sent to the server, where the same processing pipeline as the Python app was executed on the Node.js backend. Just as I normally do in professional settings, I then took the app and deployed it, opting to use Vercel for this project.
 
 Unfortunately, due to the costs associated with OpenAI API usage, the web app is no longer publicly deployed.
 
