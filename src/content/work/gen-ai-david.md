@@ -4,14 +4,14 @@ publishDate: 2019-10-02 00:00:00
 img: /assets/image.png
 img_alt: Soft pink and baby blue water ripples together in a subtle texture.
 description: |
-  David Attenborough narrating your life as if it a nature documentary
+  David Attenborough narrating your life as if it were a nature documentary
 tags:
   - Generative AI
   - Humorous
   - Inspired
 ---
 
-David Attenborough narrates your life. Thanks to being able to string together AI capabilities through APIs. OpenAI's GPT and vision API along with ElevenLabs for text to speech with a custom trained David Attenborough voice. This project was created immediately after the OpenAPI Vision API was available. This projects we greatly inspired by a tweeter post of someone doing something similar. I took the idea and ran with it as I have always been fascinated by potential for "opportunistic" ai photography. This is how the project works in sense, taking still images every second then feeding it to GPT via the Vision API for the output to be fed into Elevelabs for speech.
+David Attenborough narrates your life, thanks to the ability to string together AI capabilities through APIs. This project combines OpenAI's GPT and Vision API with ElevenLabs for text-to-speech using a custom-trained David Attenborough voice. It was created immediately after the OpenAI Vision API became available. The project was heavily inspired by a Twitter post, but I expanded on the idea, driven by my fascination with the potential for "opportunistic" AI photography. The system works by capturing still images every second, feeding them to GPT via the Vision API, and then generating narration through ElevenLabs for speech.
 
 ### Implementation
 
@@ -19,7 +19,7 @@ David Attenborough narrates your life. Thanks to being able to string together A
 
 https://github.com/rsmets/ai-narrator
 
-I originally forked the project that would run as a local python app that would take continues images and contiously feed them to the Vision API. I made significant improvements to the original open source project and contributed many of them back to the original project. My favorite addition was creating more photobooth like experience option where you could have groups of individuals pose, capture an image, then have David Attenborough narrate it for you. It made for a fun party photobooth!
+The project began as a fork of an existing open-source Python application that continuously captured images and processed them through the Vision API. I made significant improvements to the original codebase and contributed many of these enhancements back to the community. My favorite addition was creating a photobooth-like experience, where groups of individuals could pose, capture an image, and hear David Attenborough narrate it. This feature added a fun, interactive element, making it a hit at parties!
 
 _An instance of Photobooth mode fun._
 
@@ -30,7 +30,7 @@ _An instance of Photobooth mode fun._
   Your browser does not support the audio element.
 </audio>
 
-_A photo of 2023's Christmas Dinner where the photo was taken in the app's long running mode._
+_A photo from 2023's Christmas Dinner, taken in the app's long-running mode._
 
 ![Group photobooth picture](/assets/dinner/image.jpg)
 
@@ -43,10 +43,10 @@ _A photo of 2023's Christmas Dinner where the photo was taken in the app's long 
 
 https://github.com/rsmets/ai-narrator-simple-webapp
 
-A cool worker than decided to port the application to Javascript so it could be deployed as a web app. His implementation realied on Socket.io to Stream the audio to the client while the webcam and captures images, after which it converts the image to base64 and sends it to the server. Then the same process as the local python app would take place on the node backend.
+A talented coworker decided to port the application to JavaScript, enabling it to be deployed as a web app. This implementation relied on Socket.io to stream the audio to the client while the webcam captured images. The images were converted to Base64 and sent to the server, where the same processing pipeline as the Python app was executed on the Node.js backend.
 
-Unfortunately due to cost associated with the Open API usage, the web app is no longer deployed for anyone to use.
+Unfortunately, due to the costs associated with OpenAI API usage, the web app is no longer publicly deployed.
 
 ### Inspiration
 
-While this notion of AI power "moments" capturer was an idea I had been dreaming about, here is the original project post by Charlie Holtz, Is open source project was the basis of this app, https://twitter.com/charliebholtz/status/1724815159590293764.
+While the concept of an AI-powered "moments" capturer had been a long-standing dream of mine, the original inspiration came from Charlie Holtz's project. His open-source work served as the foundation for this app. You can find the original post here: [Charlie Holtz's Twitter Post](https://twitter.com/charliebholtz/status/1724815159590293764).
