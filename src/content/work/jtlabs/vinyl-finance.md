@@ -13,7 +13,7 @@ tags:
 
 Vinyl Finance, https://www.vinylfinance.xyz/, home to the grooviest algorithmic token fork pegged to $FTM on the Fantom Opera network and first of its kind Vinyl tNFT Marketplace.
 
-It was an ambitious project where I had the opportunity to get hands on with cut edge EVM, Ethereum Virtual Machine, develop practice. Deciding to use the cutting edge professional grade development framework, [Hardhat](https://hardhat.org/), as my frame work of choice and take the idea from inception to local chain deployment to mainnet deployment.
+It was an ambitious project where I had the opportunity to get hands on with cutting edge EVM, Ethereum Virtual Machine, develop practice. Deciding to use the cutting edge professional grade development framework, [Hardhat](https://hardhat.org/), as my frame work of choice and take the idea from inception to local chain deployment to mainnet deployment.
 
 Deciding to use Hardhat of Truffle, the first and more popular EVM development framework at the time was a pivotal decision. Since Hardhat has been nodded at the defacto framework for modern EVM development thanks to all the tooling to assist through the whole application development lifecycle: testing, package management, and deployments.
 
