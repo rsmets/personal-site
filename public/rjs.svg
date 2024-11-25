@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <!-- Background -->
+  <rect width="128" height="128" fill="#000" rx="16" />
+
+  <!-- Letter R -->
+  <path d="M40 36 H60 A12 12 0 0 1 72 48 V64 A12 12 0 0 1 60 76 H40 Z M40 36 V76 L70 104" fill="#FFF" />
+
+  <!-- Letter S -->
+  <path d="M80 48 C80 40, 96 40, 96 48 C96 56, 80 56, 80 64 C80 72, 96 72, 96 80 C96 88, 80 88, 80 80" fill="#FFF" />
+
+  <style>
+    rect, path { transition: fill 0.3s ease, stroke 0.3s ease; }
+    @media (prefers-color-scheme: dark) {
+      rect { fill: #FFF; }
+      path { fill: #000; }
+    }
+  </style>
+</svg>
