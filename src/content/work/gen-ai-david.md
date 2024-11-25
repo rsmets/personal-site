@@ -23,19 +23,19 @@ I originally forked the project that would run as a local python app that would 
 
 _An instance of Photobooth mode fun._
 
-![Group photobooth picture](/public/assets/Dev+Group/image.jpg)
+![Group photobooth picture](/assets/Dev+Group/image.jpg)
 
 <audio controls>
-  <source src="/public/assets/Dev+Group/audio.wav" type="audio/wav">
+  <source src="/assets/Dev+Group/audio.wav" type="audio/wav">
   Your browser does not support the audio element.
 </audio>
 
 _A photo of 2023's Christmas Dinner where the photo was taken in the app's long running mode._
 
-![Group photobooth picture](/public/assets/dinner/image.jpg)
+![Group photobooth picture](/assets/dinner/image.jpg)
 
 <audio controls>
-  <source src="/public/assets/dinner/audio.wav" type="audio/wav">
+  <source src="/assets/dinner/audio.wav" type="audio/wav">
   Your browser does not support the audio element.
 </audio>
 

@@ -25,10 +25,10 @@ The leading platforms, Mixcloud and Soundcloud, both stream at an abismal 128kb/
 
 The streaming bit rate was analyzed with `ffprobe` for the exact same audio file between Mixcloud and Found Audio's backend object store, S3.
 
-![Mixcloud's bitrate](/public/assets/found-audio-ffprobe-mixcloud.png)
+![Mixcloud's bitrate](/assets/found-audio-ffprobe-mixcloud.png)
 _Mixcloud's 128kb/s birate_
 
-![Found Audio bitrate](/public/assets/found-audio-ffprobe.png)
+![Found Audio bitrate](/assets/found-audio-ffprobe.png)
 _Found Audio's 1411kb/s birate_
 
 ### Website
