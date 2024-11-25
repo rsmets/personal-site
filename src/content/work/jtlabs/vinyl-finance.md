@@ -4,18 +4,18 @@ publishDate: 2021-03-04 00:00:00
 img: /assets/vinyl_finance.png
 img_alt: Vinyl Finance Logo
 description: |
-  The grooviest algorithmic token fork pegged to $FTM on the Fantom Opera network and first of its kind Vinyl tNFT Marketplace
+  The grooviest algorithmic token fork pegged to $FTM on the Fantom Opera network and the first of its kind Vinyl tNFT Marketplace
 tags:
   - Web3
   - Dev
   - Community
 ---
 
-Vinyl Finance, https://www.vinylfinance.xyz/, home to the grooviest algorithmic token fork pegged to $FTM on the Fantom Opera network and first of its kind Vinyl tNFT Marketplace.
+Vinyl Finance ([website](https://www.vinylfinance.xyz/)) is home to the grooviest algorithmic token fork pegged to $FTM on the Fantom Opera network and the first of its kind Vinyl tNFT Marketplace.
 
-This ambitious project provided me the opportunity to work hands-on with cutting-edge Ethereum Virtual Machine (EVM) development practices. I chose the professional-grade development framework [Hardhat](https://hardhat.org/) as my framework of choice, taking the idea from inception to local chain deployment and ultimately to mainnet deployment.
+This ambitious project provided me the opportunity to work hands-on with cutting-edge Ethereum Virtual Machine (EVM) development practices. I selected the professional-grade development framework [Hardhat](https://hardhat.org/) as my framework of choice, taking the idea from inception to local chain deployment and ultimately to mainnet deployment.
 
-Selecting Hardhat over Truffle—the first and more popular EVM development framework at the time—was a pivotal decision. Hardhat is now recognized as the de facto framework for modern EVM development due to its extensive tooling, which supports the entire application development lifecycle, including testing, package management, and deployments.
+Choosing Hardhat over Truffle—the first and more popular EVM development framework at the time—was a pivotal decision. Hardhat is now recognized as the de facto framework for modern EVM development due to its extensive tooling, which supports the entire application development lifecycle, including testing, package management, and deployments.
 
 To build community trust and adhere to best practices, I authored extensive protocol [documentation](https://vinyl-finance.github.io/vinylfinance-docs/docs/welcome) and underwent [KYC](https://vinyl-finance.github.io/vinylfinance-docs/docs/security/kyc) (Know Your Customer) verification.
 
