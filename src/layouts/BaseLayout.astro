@@ -19,9 +19,9 @@ const { title, description } = Astro.props;
 <html lang="en">
 	<head>
 		<MainHead title={title} description={description} />
+		<Analytics />
 	</head>
 	<body>
-		<Analytics />
 		<div class="stack backgrounds">
 			<Nav />
 			<slot />
