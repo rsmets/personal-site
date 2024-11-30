@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { data, slug } = Astro.props.post;
+---
+
+<article class="blog-post">
+  <a href={`/blog/${slug}`}>
+    <h2>{data.title}</h2>
+    <p>{data.description}</p>
+    <time datetime={data.publishDate.toISOString()}>{data.publishDate.toDateString()}</time>
+  </a>
+</article>
+
+<style>
+  .blog-post {
+    margin-bottom: 2rem;
+  }
+  .blog-post a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .blog-post h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  .blog-post p {
+    margin: 0.5rem 0;
+  }
+  .blog-post time {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+  }
+</style>
