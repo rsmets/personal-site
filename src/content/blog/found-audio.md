@@ -1,8 +1,9 @@
 ---
-title: Found Audio
-publishDate: 2022-03-02 00:00:00
+title: Agentic AI
+publishDate: 2024-11-30 00:00:00
 img: /assets/found-audio.png
 img_alt: Found Audio homepage screenshot
+category: side-project
 description: |
   Found Audio is a lossless audio streaming service for all, but especially your inner audiophile.
 tags:

@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import Icon from './Icon.astro';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -11,6 +12,10 @@ const { data, slug } = Astro.props.post;
 <article class="blog-post">
   <a href={`/blog/${slug}`}>
     <h2>{data.title}</h2>
+    <div class="tags">
+      <Icon icon="list" color="var(--accent-regular)" size="1rem" gradient />
+      <p>{data.tags ? `${data.tags.join(', ')}` : ''}</p>
+    </div>
     <p>{data.description}</p>
     <time datetime={data.publishDate.toISOString()}>{data.publishDate.toDateString()}</time>
   </a>
@@ -28,11 +33,12 @@ const { data, slug } = Astro.props.post;
     margin: 0;
     font-size: 1.5rem;
   }
-  .blog-post p {
-    margin: 0.5rem 0;
+  .tags {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
-  .blog-post time {
-    font-size: 0.875rem;
-    color: var(--gray-500);
+  .tags p {
+    margin: 0;
   }
 </style>
