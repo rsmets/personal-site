@@ -42,9 +42,9 @@ In addition to frameworks that leverage prebuilt models, the bells and whistles 
 
 #### Voice
 
-My favorite custom voice service is offered by [ElevenLabs](https://elevenlabs.io/).
+My favorite custom voice service is offered by [ElevenLabs](https://elevenlabs.io/). The leading open source alternative is [F5-TTS](https://github.com/SWivid/F5-TTS), which I have yet to be hands on with. The convenience of ElevenLabs offering is undeniable.
 
-However, I would be remiss not to mention the [RealTime](https://openai.com/index/introducing-the-realtime-api/) API by OpenAI that is currently in beta. The natural conversational ability that the API supports is spectacular. It even supports ["prompting for voices"](https://platform.openai.com/docs/guides/realtime/overview?text-generation-quickstart-example=audio#prompting-for-voices) which allows you to dictate a prompt simply by the inflections in your voice. I cannot wait until they allow you to use your own [voice](https://platform.openai.com/docs/guides/realtime/overview?text-generation-quickstart-example=audio#voices) model.
+I would be remiss not to mention the [RealTime](https://openai.com/index/introducing-the-realtime-api/) API by OpenAI that is currently in beta. The natural conversational ability that the API serves is spectacular. It even supports ["prompting for voices"](https://platform.openai.com/docs/guides/realtime/overview?text-generation-quickstart-example=audio#prompting-for-voices) which allows you to dictate a prompt simply by the inflections in your voice. I cannot wait until they allow you to use your own [voice](https://platform.openai.com/docs/guides/realtime/overview?text-generation-quickstart-example=audio#voices) model.
 
 #### Avatar
 
