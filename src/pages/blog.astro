@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogPost from '../components/BlogPost.astro';
+import Hero from '../components/Hero.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+<BaseLayout title="Blog | Ray Smets" description="Read the latest blog posts by Ray Smets">
+  <div class="stack gap-20">
+    <main class="wrapper stack gap-8">
+	  <Hero
+		title="Blog"
+	    tagline="aka my musing and ramblings"
+	  >
+	  </Hero>
+      <section>
+        {posts.map((post) => (
+          <BlogPost post={post} />
+        ))}
+      </section>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  section {
+    display: grid;
+    gap: 2rem;
+  }
+</style>
