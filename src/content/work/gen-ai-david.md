@@ -1,7 +1,7 @@
 ---
 title: Generative AI David Attenborough Narration
 publishDate: 2023-11-17 00:00:00
-img: /assets/davidA.png
+img: /assets/gen_david_a.png
 img_alt: Soft pink and baby blue water ripples together in a subtle texture.
 description: |
   David Attenborough narrating your life as if it were a nature documentary
