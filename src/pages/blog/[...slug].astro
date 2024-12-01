@@ -39,7 +39,7 @@ const { Content } = await entry.render();
 								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
 							</div>
 							<p class="description">{entry.data.description}</p>
-                            <p class="description">{entry.data.publishDate}</p>
+                            <p class="date">{new Date(entry.data.publishDate).toISOString().split('T')[0]}</p>
 						</div>
 					</Hero>
 				</div>
