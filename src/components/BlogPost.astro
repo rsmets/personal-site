@@ -12,12 +12,12 @@ const { data, slug } = Astro.props.post;
 <article class="blog-post">
   <a href={`/blog/${slug}`}>
     <h2>{data.title}</h2>
+    <p>{new Date(data.publishDate).toISOString().split('T')[0]}</p>
     <div class="tags">
       <Icon icon="list" color="var(--accent-regular)" size="1rem" gradient />
       <p>{data.tags ? `${data.tags.join(', ')}` : ''}</p>
     </div>
     <p>{data.description}</p>
-    <time datetime={data.publishDate.toISOString()}>{data.publishDate.toDateString()}</time>
   </a>
 </article>
 
