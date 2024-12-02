@@ -51,11 +51,19 @@ _Santa's avatar._
 
 ### Final Outcome
 
-Putting all the pieces together, we have Santa with his own unique personality, diction, voice, complexion, and memories. Pretty remarkable! Enjoy the demonstration video of me talking with Santa, _coming soon_.
+Putting all the pieces together, we have Santa with his own unique personality, diction, voice, complexion, and memories. Pretty remarkable! Enjoy the demonstration video of me talking with Santa.
 
-In the mean time, here is a video chat between me and myself.
+<iframe width="600" height="315" src="https://www.loom.com/embed/d50cda6626614a5d9f7e526344d2eb19?sid=46ecee2e-66ad-43cf-a018-c80b94003f58" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+<iframe width="600" height="315" src="https://www.loom.com/embed/46ce1c9cb11f473a8401ec0b4c52856f?sid=61e02138-8b38-48b1-8dd2-eafcdc75b8cc" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+By simply updating the Eliza frameworks character file, cloning another voice, and using an image to create a new avatar with, an AI clone of anyone could be made and communicated with in this fashion. With the vector database, the each come with their own memories and directives.
+
+Here is look into me chatting with me! Not as fun as having a direct line of communication with Santa, though.
 
 <iframe width="600" height="315" src="https://www.youtube.com/embed/jsJsmbxWZVY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+_Arguably the most fun conversation was between my mother-in-law and herself. But unfortunately she does not want me to share that video._
 
 ### Desired Improvements
 
