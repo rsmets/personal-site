@@ -17,7 +17,7 @@ It was my first time using an agentic AI framework, Eliza, giving this project a
 
 ### Implementation
 
-I forked and contributed back to a project, [LiveVideoChat](https://github.com/rsmets/LiveVideoChat), which the Eliza creator, Steve Hug, forked from Simli's older example app repo.
+I forked and contributed back to a project, [LiveVideoChat](https://github.com/rsmets/LiveVideoChat), which the Eliza creator, Shaw Walters, forked from Simli's older example app repo.
 
 It requires an Eliza instance running the "Direct" client for API interfacing. It also requires a Simli AI, OpenAI, and ElevenLabs API key.
 
@@ -51,7 +51,11 @@ _Santa's avatar._
 
 ### Final Outcome
 
-Putting all the pieces together, we have Santa with his own unique personality, diction, voice, complexion, and memories. Pretty remarkable! Enjoy the demonstration video of me talking with Santa.
+Putting all the pieces together, we have Santa with his own unique personality, diction, voice, complexion, and memories. Pretty remarkable! Enjoy the demonstration video of me talking with Santa, _coming soon_.
+
+In the mean time, here is a video chat between me and myself.
+
+<iframe width="600" height="315" src="https://www.youtube.com/embed/jsJsmbxWZVY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Desired Improvements
 
