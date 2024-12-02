@@ -11,11 +11,11 @@ tags:
   - White Paper
 ---
 
-Part of my graduated Information Security degree studies required a practicum project to server as a capstone. I opted to do mine of a new way of application development via public blockchains which affords the users a true sense of online ownership and identity.
+As part of my graduate Information Security degree studies, I was required to complete a practicum project to serve as a capstone. I chose to focus on a new approach to application development via public blockchains, which provides users with true online ownership and identity control.
 
 ### Motivation
 
-My interest in this new paradigm in application development was innate clear to me while I was running the backend for n access control startup and I could impersonate any and all users in relation to our application. This trust in the service operators is something was clear blockchain apps solved thanks to asymmetric cryptography nature of each and every transaction. Additionally, I could scrub access logs if I wanted, another characteristic - immutable transaction records - that blockchains provide.
+My interest in this new paradigm of application development became clear while I was managing the backend for an access control startup. I realized that I had the ability to impersonate any user within our application. This reliance on trust in service operators is a fundamental issue that blockchain applications address through the nature of asymmetric cryptography in every transaction. Furthermore, I could manipulate or erase access logs if I wanted, a problem that blockchains solve by providing immutable transaction records.
 
 ### White Paper
 
