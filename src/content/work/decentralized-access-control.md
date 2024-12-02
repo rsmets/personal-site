@@ -19,7 +19,7 @@ My interest in this new paradigm of application development became clear while I
 
 ### White Paper
 
-<embed src="/public/assets/EOS_ACL_Dapp.pdf" width="600" height="500" type="application/pdf">
+<embed src="/assets/EOS_ACL_Dapp.pdf" width="600" height="500" type="application/pdf">
 
 ### Presentation
 
