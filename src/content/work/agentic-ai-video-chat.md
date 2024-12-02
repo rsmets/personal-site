@@ -1,5 +1,5 @@
 ---
-title: Agentic AI
+title: Agentic AI Video Chat
 publishDate: 2024-11-27 00:00:00
 img: /assets/santa_ai.gif
 img_alt: Santa avatar gif

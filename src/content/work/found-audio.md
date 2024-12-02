@@ -7,7 +7,7 @@ description: |
   Found Audio is a lossless audio streaming service for all, but especially your inner audiophile.
 tags:
   - System Design
-  - Infrastructure Management
+  - Cloud Architecture
   - Media
 ---
 
@@ -15,7 +15,7 @@ Experience the lossless audio soundscapes of Found Audio at [foundaudio.club](ht
 
 ## Inception
 
-> I was fed up with the poor streaming quality of Soundcloud and couldn't find an alternative long-format audio streaming site that would stream at lossless bitrates.
+> The poor streaming quality of Soundcloud wasn't cutting it for me and couldn't find an alternative long-format audio streaming site that would stream at lossless bitrates.
 
 Like many great projects, Found Audio was born out of solving a personal issue. I wanted to stream my long-format, multi-gigabyte recorded audio files at the same bitrate they were recorded at. However, I could not find a platform that offered such a service.
 
