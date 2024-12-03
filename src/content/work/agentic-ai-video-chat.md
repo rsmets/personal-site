@@ -11,9 +11,9 @@ tags:
   - AI Tooling
 ---
 
-This was an incredibly fun project getting hands-on with the [AI tooling](https://www.raysmets.me/blog/agentic-ai) from my blog post.
+This was an incredibly fun project getting hands-on with the [AI tooling](https://www.raysmets.me/blog/agentic-ai-tooling) from my blog post.
 
-It was my first time using an agentic AI framework, Eliza, giving this project a new element compared to the David Attenborough AI voice project from the previous year. The built-in Eliza vector database support made persisting memory across processes trivial, which allowed for much more lifelike interactions than ephemerally provided context from the David Attenborough project.
+It was my first time using an agentic AI framework, [Eliza](https://github.com/ai16z/eliza), giving this project a new element compared to the [David Attenborough AI]((https://www.raysmets.me/blog/gen-ai-david)) voice project from the previous year. The built-in Eliza vector database support made persisting memory across processes trivial, which allowed for much more lifelike interactions than ephemerally provided context from the David Attenborough project.
 
 ### Implementation
 
@@ -27,7 +27,7 @@ It requires an Eliza instance running the "Direct" client for API interfacing. I
 
 `A warm, jolly male voice with a rich, deep timbre. Cheerful and full of life, it often carries a hearty, resonant laugh (e.g., “Ho, Ho, Ho!”). The tone is friendly, inviting, and slightly grandfatherly, exuding kindness and generosity. It’s animated but calming, with a touch of magical charm that feels timeless and comforting.`
 
-Frankly, it turned out mediocre, but usable.
+Frankly, I think turned out less than stellar, but certainly usable.
 
 <audio controls>
   <source src="/assets/voice_preview_SantaEuro.mp3" type="audio/mp3">
@@ -40,9 +40,7 @@ OpenAI's Whisper API was used to convert the speech to text, which was then fed 
 
 #### Avatar
 
-Simli was used to create the avatars for the project.
-
-_Santa's avatar._
+[Simli](https://www.simli.com/) was used to create the avatars for the project.
 
 <video width="320" height="240" controls autoplay loop muted>
   <source src="/assets/santa_ai.mp4" type="video/mp4">
@@ -53,9 +51,9 @@ _Santa's avatar._
 
 Putting all the pieces together, we have Santa with his own unique personality, diction, voice, complexion, and memories. Pretty remarkable! Enjoy the demonstration video of me talking with Santa.
 
-<iframe width="600" height="315" src="https://www.loom.com/embed/d50cda6626614a5d9f7e526344d2eb19?sid=46ecee2e-66ad-43cf-a018-c80b94003f58" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe width="600" height="315" src="https://youtube.com/embed/3zynD9Ae1Hk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<iframe width="600" height="315" src="https://www.loom.com/embed/46ce1c9cb11f473a8401ec0b4c52856f?sid=61e02138-8b38-48b1-8dd2-eafcdc75b8cc" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe width="600" height="315" src="https://www.youtube.com/embed/gI_2BdeivPE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 By simply updating the Eliza frameworks character file, cloning another voice, and using an image to create a new avatar with, an AI clone of anyone could be made and communicated with in this fashion. With the vector database, the each come with their own memories and directives.
 
