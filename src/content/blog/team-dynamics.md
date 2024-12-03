@@ -15,11 +15,11 @@ In a recent experience, I encountered a moment that highlighted the delicate bal
 
 ## The Feedback Dilemma
 
-During an informal discussion, where feedback was shared in a manner more reminiscent of a chat between friends rather than a structured performance review, I received a comment that was not only surprising but somewhat unsettling. The feedback was, "You are not hard-working enough." This casual remark, meant to be a friendly nudge, did not seem thoroughly considered and was best suited for a formal performance review setting.
+During an informal discussion, where feedback was shared in a manner more reminiscent of a chat between friends rather than a structured performance review, I overheard a comment that was not only surprising but somewhat unsettling. The feedback was, "You are not hard-working enough." This casual remark, meant to be a friendly nudge, did not seem thoroughly considered. The individual in question was objetively very driven and hardworking. Yet, even they were taken back from this comment coming from their superior in the professional organization. It was clear neither participants left that initial conversation in a satisfactory state.
 
 ### Professional vs. Personal
 
-As someone who sees their role not just as a co-worker but also as a leader and a friend, I value unfiltered communication. However, such openness is precisely why I am cautious about labeling co-workers as friends. To achieve our common goals, we must always view our interactions through a professional lens. The relationship dictates a level of thoughtfulness not demanded when interacting with a friend.
+As someone who sees their role not just as a co-worker but also as a leader and a friend, I value unfiltered communication. However, such openness that allows for remarks stated with good intention ends up being dance on thin ice. It is precisely why I am cautious about labeling co-workers as friends. To achieve our common goals, we must always view our interactions through a professional lens. The relationship dictates a level of thoughtfulness not demanded when interacting with a casual friend.
 
 ### Literature
 
