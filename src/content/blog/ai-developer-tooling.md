@@ -12,7 +12,7 @@ tags:
 
 ## Intelligent Code Editors
 
-### [Cursor](https://www.cursor.com/?utm_source=chatgpt.com)
+### [Cursor](https://www.cursor.com)
 
 Cursor marked the beginning of the AI-first code editor era. Built as a fork of Visual Studio Code, it introduced features like:
 
@@ -22,7 +22,7 @@ Cursor marked the beginning of the AI-first code editor era. Built as a fork of 
 
 It gained popularity for its seamless integration with developer workflows making it considerably better than Github's Copilot VS Code extension. However, **it pales in comparison to Windsurf**.
 
-### [Windsurf](https://codeium.com/windsurf?utm_source=chatgpt.com)
+### [Windsurf](https://codeium.com/windsurf)
 
 Released in November 2024, Windsurf advanced the concept of agentic AI in code editing. Key capabilities include:
 
@@ -34,7 +34,7 @@ After using Windsurf in professional and personal project settings for the last 
 
 Its ability to automatically run CLI commands with all of the context of the project's source code is the next-level aspect of this tool.
 
-An example of this that blew me away was setting up a high availability Redis Sentinel Helm deployment that had Redis Stack modules but used Bitnami's Redis chart (which does not support Redis Stack Server natively). It was doing things like looking at the Kubernetes state via `kubectl` to figure out what needed to be updated in the deployment configs and then verifying it by pulling the image locally and going through the file structure to verify its suggestion would work. The solution it arrived at was simple yet not obvious, however it saved me hours of researching industry practices and sytax for using an init container and then volume mounting files between the Reids Stack image and the vanilla Redis image. This was after presenting two complex solutions and getting input from me for which path to pursue. It felt like I got to speak with an absolute developer ninja who knew precisely what to do and then took the keyboard from me and did it while I looked over their shoulder.
+An example of this that blew me away was setting up a high availability Redis Sentinel Helm deployment that had Redis Stack modules but used Bitnami's [Redis chart](https://github.com/bitnami/charts/tree/main/bitnami/redis) (which does not support [Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/) modules natively). It was doing things like looking at the Kubernetes state via `kubectl` to figure out what needed to be updated in the deployment configs and then verifying it by pulling the image locally and going through the file structure to verify its suggestion would work. The solution it arrived at was simple yet not obvious, however it saved me hours of researching industry practices and syntax for using an init container and then volume mounting files between the [Redis Stack image](https://hub.docker.com/repository/docker/redis/redis-stack-server/) and the vanilla Redis image. This was after presenting two complex solutions and getting input from me for which path to pursue. It felt like I got to speak with an absolute developer ninja who knew precisely what to do and then took the keyboard from me and did it while I looked over their shoulder.
 
 **Recommendation**: Treat it like the principal engineer that sits next to you in the office - it can help with anything source code related and sometimes you can just fork over your keyboard and watch magic happen.
 
