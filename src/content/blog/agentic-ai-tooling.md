@@ -7,8 +7,8 @@ category: side-project
 description: |
   Putting together a functional agentic AI app has never been easier. With a host of models to choose from and frameworks to assist, all it takes is a little imagination.
 tags:
-  - AI
-  - Tooling
+  - AI Tooling
+  - Development Frameworks
 ---
 
 ## Agent Frameworks
