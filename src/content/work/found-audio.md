@@ -40,3 +40,7 @@ Not being a front-end web developer, I chose Svelte for the framework due to its
 ### Final Touches
 
 Adding CloudFront in front of S3, the object store, was as trivial as typing this sentence but made a tangible difference in the media's loading speed.
+
+### 2025 Updates
+
+This project was originally created in 2023 and is now being updated for 2025. Please enjoy [this](https://found-audio-groove.vercel.app/discover) preview! It was made nearly exclusively with the latest AI developer tools I mentioned in various end of 2024 blog posts.

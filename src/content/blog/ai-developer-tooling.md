@@ -67,10 +67,12 @@ Lovable.dev eliminates the need for extensive full-stack knowledge, empowering d
 
 ## The Rise of Open-Source Agentic AI Frameworks
 
-The past two months have seen open-source agentic AI frameworks take off, democratizing access to advanced AI capabilities. I talked about my favorite, Eliza, in a previous blog post, [Agentic AI Tooling](https://www.raysmets.me/blog/agentic-ai-tooling). This surge is expected to fuel a frenzy in the private startup sector, driving innovation and competition.
+The past two months have seen open-source agentic AI frameworks take off, democratizing access to advanced platform level AI capabilities. I talked about my favorite, Eliza, in a previous blog post, [Agentic AI Tooling](https://www.raysmets.me/blog/agentic-ai-tooling). It's frameworks and developer experience strides like Eliza that really feels like a Linux moment for the Agentic AI powered application developers.
 
 ## Conclusion
 
-From Windsurf's intelligent fully contextual code editing to Lovable.dev's full-stack agentic development convenience, AI tooling is evolving rapidly. With the rise of agent AI open-source frameworks, the future for developers is limitless, heralding a new era of innovation.
+From Windsurf's intelligent fully contextual code editing to Lovable.dev's full-stack agentic development convenience, these tools enable applications to be authored with the need for a seasoned developer at the helm.
 
-Soon, I plan to relaunch [Found Audio](https://www.raysmets.me/work/found-audio) with the core app source code created with Lovable.dev and higher level feature augmented and authored in Windsurf. Definitely, will be documenting that process! _I'll leave you to compare final outputs implementations - for sure the UI will have a leg up, but also my postgres service provider is sunset end of 2024 so Supabase is looking more and more enticing._
+Soon, I plan to relaunch [Found Audio](https://www.raysmets.me/work/found-audio) with the core app source code created with Lovable.dev and higher level feature augmented and authored in Windsurf. Definitely, will be documenting that process! _I'll leave you to compare final outputs implementations - for sure the UI will have a leg up, but also my postgres service provider is sunset end of January 2025 so Supabase is looking more and more enticing..._
+
+_Updated 2025-01-08: the new site is coming along swimmingly. I don't have time for a detailed blog post right now, but here are the two links I mentioned so you can compare the sites yourself: [Found Audio](https://www.foundaudio.club) and [Found Audio v2 Preview](https://found-audio-groove.vercel.app/). The later has about 5x the functionality and took me 80% less effort to build - so far._
