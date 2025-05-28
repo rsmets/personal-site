@@ -38,16 +38,23 @@ const { Content } = await entry.render();
 							<div class="tags">
 								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
 							</div>
-							<p class="description">{entry.data.description}</p>
-							<p class="date">
+							<div class="details-row">
+								<p class="description">{entry.data.description}</p>
+								<div class="date-container">
 								{/* Format date for display as a range or ongoing project */}
-								<span class="date-label">Started:</span> {new Date(entry.data.startDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+								<p class="date-item">
+									<span class="date-label">Started:</span>
+									{new Date(entry.data.startDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+								</p>
 								{entry.data.endDate ? (
-									<> • <span class="date-label">Completed:</span> {new Date(entry.data.endDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}</>
+									<p class="date-item">
+										<span class="date-label">Completed:</span>
+										{new Date(entry.data.endDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+									</p>
 								) : (
-									<> • <span class="ongoing">Ongoing</span></>
+									<p class="date-item ongoing">Ongoing</p>
 								)}
-							</p>
+							</div>
 						</div>
 					</Hero>
 				</div>
@@ -84,9 +91,27 @@ const { Content } = await entry.render();
 		align-items: center;
 	}
 
-	.date {
+	.details-row {
+		display: flex;
+		flex-direction: row;
+		gap: 2rem;
+		align-items: flex-start;
+		flex-wrap: wrap;
+	}
+
+	.date-container {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
 		font-size: var(--text-sm);
 		color: var(--gray-300);
+		margin: 0;
+		padding: 0.5rem 0;
+	}
+
+	.date-item {
+		margin: 0;
+		line-height: 1.2;
 	}
 
 	.date-label {
