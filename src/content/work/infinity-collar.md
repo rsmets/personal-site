@@ -1,6 +1,6 @@
 ---
 title: Infinity Collar
-publishDate: 2021-12-01 00:00:00
+startDate: 2021-09-01T00:00:00Z
 img: /assets/infinity_collar_kicad.png
 img_alt: Infinity mirror LED collar
 description: |

@@ -38,7 +38,23 @@ const { Content } = await entry.render();
 							<div class="tags">
 								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
 							</div>
-							<p class="description">{entry.data.description}</p>
+							<div class="details-row">
+								<p class="description">{entry.data.description}</p>
+								<div class="date-container">
+								{/* Format date for display as a range or ongoing project */}
+								<p class="date-item">
+									<span class="date-label">Started:</span>
+									{new Date(entry.data.startDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+								</p>
+								{entry.data.endDate ? (
+									<p class="date-item">
+										<span class="date-label">Completed:</span>
+										{new Date(entry.data.endDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+									</p>
+								) : (
+									<p class="date-item ongoing">Ongoing</p>
+								)}
+							</div>
 						</div>
 					</Hero>
 				</div>
@@ -75,6 +91,56 @@ const { Content } = await entry.render();
 		align-items: center;
 	}
 
+	.details-row {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		align-items: center; /* Center alignment for mobile */
+	}
+
+	@media (min-width: 50em) {
+		.details-row {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: baseline;
+			gap: 2rem;
+		}
+
+		.description {
+			flex: 1;
+		}
+
+		.date-container {
+			flex: 0 0 auto;
+			text-align: right;
+		}
+	}
+
+	.date-container {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		font-size: var(--text-lg); /* Match description font size */
+		color: var(--gray-300);
+		margin: 0;
+		padding: 0;
+		text-align: center; /* Center text on mobile */
+	}
+
+	.date-item {
+		margin: 0;
+		line-height: 1.2;
+	}
+
+	.date-label {
+		font-weight: 600;
+	}
+
+	.ongoing {
+		color: var(--accent-regular);
+		font-weight: 600;
+	}
+
 	.tags {
 		display: flex;
 		gap: 0.5rem;
@@ -83,6 +149,13 @@ const { Content } = await entry.render();
 	.description {
 		font-size: var(--text-lg);
 		max-width: 54ch;
+		text-align: center; /* Center text on mobile */
+	}
+
+	@media (min-width: 50em) {
+		.description {
+			text-align: left; /* Left align on desktop */
+		}
 	}
 
 	.content {

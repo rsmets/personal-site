@@ -1,6 +1,7 @@
 ---
 title: Decentralized Access Control
-publishDate: 2020-07-25 00:00:00
+startDate: 2020-05-25T00:00:00Z
+endDate: 2020-07-25T00:00:00Z
 img: /assets/gt-extended-RGB.png
 img_alt: Decentralized access control
 description: |
