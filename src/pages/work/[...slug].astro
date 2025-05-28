@@ -93,10 +93,27 @@ const { Content } = await entry.render();
 
 	.details-row {
 		display: flex;
-		flex-direction: row;
-		gap: 2rem;
+		flex-direction: column;
+		gap: 1rem;
 		align-items: flex-start;
-		flex-wrap: wrap;
+	}
+
+	@media (min-width: 50em) {
+		.details-row {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: baseline;
+			gap: 2rem;
+		}
+
+		.description {
+			flex: 1;
+		}
+
+		.date-container {
+			flex: 0 0 auto;
+			text-align: right;
+		}
 	}
 
 	.date-container {
@@ -106,7 +123,7 @@ const { Content } = await entry.render();
 		font-size: var(--text-lg); /* Match description font size */
 		color: var(--gray-300);
 		margin: 0;
-		padding: 0.5rem 0;
+		padding: 0;
 	}
 
 	.date-item {
