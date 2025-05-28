@@ -1,6 +1,6 @@
 ---
 title: Found Audio
-startDate: 2022-03-02 00:00:00
+startDate: 2022-03-02T00:00:00Z
 img: /assets/found-audio.png
 img_alt: Found Audio homepage screenshot
 description: |
