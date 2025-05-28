@@ -47,22 +47,6 @@ MCP uses a JSON-based protocol with several key components:
 
 The protocol is designed to be lightweight and extensible, making it easy to implement in any language or framework. Most importantly, it's stateless, allowing tools to be distributed across different services or even organizations.
 
-```json
-// Example MCP tool registration
-{
-  "tool_name": "search_web",
-  "description": "Searches the web for information",
-  "parameters": {
-    "query": "string",
-    "max_results": "integer"
-  },
-  "returns": {
-    "results": "array",
-    "total_found": "integer"
-  }
-}
-```
-
 ### Adoption Across the Industry
 
 The rapid adoption of MCP has been nothing short of remarkable. In just six months, we've seen:
