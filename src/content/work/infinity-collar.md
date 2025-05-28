@@ -6,7 +6,7 @@ img_alt: Infinity mirror LED collar
 description: |
   A custom board designed and manufactured with a custom housing. The final product is a captivating esthetic of a wearable infinity mirror.
 tags:
-  - Microcontroller Development
+  - Microcontroller
   - LED Art
   - EE Prototyping & Manufacturing
 ---

@@ -75,4 +75,4 @@ From Windsurf's intelligent fully contextual code editing to Lovable.dev's full-
 
 Soon, I plan to relaunch [Found Audio](https://www.raysmets.me/work/found-audio) with the core app source code created with Lovable.dev and higher level feature augmented and authored in Windsurf. Definitely, will be documenting that process! _I'll leave you to compare final outputs implementations - for sure the UI will have a leg up, but also my postgres service provider is sunset end of January 2025 so Supabase is looking more and more enticing..._
 
-_Updated 2025-01-08: the new site is coming along swimmingly. I don't have time for a detailed blog post right now, but here are the two links I mentioned so you can compare the sites yourself: [Found Audio](https://www.foundaudio.club) and [Found Audio v2 Preview](https://found-audio-groove.vercel.app/). The later has about 5x the functionality and took me 80% less effort to build - so far._
+_Updated 2025-01-08: The new site is coming along swimmingly. I have about 5x the original functionality with 80% less effort to build. You can read more about this effort [here](/work/found-audio)._

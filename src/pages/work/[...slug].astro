@@ -143,7 +143,15 @@ const { Content } = await entry.render();
 
 	.tags {
 		display: flex;
+		flex-wrap: wrap; /* Allow tags to wrap on smaller screens */
 		gap: 0.5rem;
+		justify-content: center; /* Center tags on mobile */
+	}
+	
+	@media (min-width: 50em) {
+		.tags {
+			justify-content: flex-start; /* Left align on desktop */
+		}
 	}
 
 	.description {
