@@ -6,7 +6,7 @@ img_alt: Found Audio homepage screenshot
 description: |
   Found Audio is a lossless audio streaming service for all, but especially your inner audiophile.
 tags:
-  - System Design
+  - Design
   - Cloud Architecture
   - Media
 ---
@@ -31,11 +31,11 @@ _Mixcloud's 128kb/s bitrate_
 ![Found Audio bitrate](/assets/found-audio-ffprobe.png)  
 _Found Audio's 1411kb/s bitrate_
 
-### Website
+### Web App
 
-With the proof of concept in place, I was pleased to have a way to stream my recorded audio files at lossless bitrates. However, as I shared the streaming links with friends, they expressed interest in accessing the same streaming improvements for their own audio files. It became clear that a web interface was the next logical step.
+With the proof of concept in place, I was pleased to have a way to stream my recorded audio files at lossless bitrates. However, as I shared the streaming links with friends, they expressed interest in being able to upload their own audio files and stream them at lossless bitrates. It became clear that a web interface was the next logical step.
 
-Not being a front-end web developer, I chose Svelte for the framework due to its simplicity and ease of use.
+Not being a front-end web developer, I chose Svelte for the framework due to its simplicity and ease of use. For the backend I choose to use a NodeJS and Typescript via [FeathersJS](https://feathersjs.com/). For deployment, I used Netlify for the front-end and Render for the backend.
 
 ### Final Touches
 
@@ -43,4 +43,6 @@ Adding CloudFront in front of S3, the object store, was as trivial as typing thi
 
 ### 2025 Updates
 
-This project was originally created in 2023 and is now being updated for 2025. Please enjoy [this](https://found-audio-groove.vercel.app/discover) preview! It was made nearly exclusively with the latest AI developer tools I mentioned in various end of 2024 blog posts.
+This project was originally created in 2023 and was updated at the start of 2025. The refactor was completed exclusively with the state of the art [AI developer tools](/blog/ai-developer-tooling) I mentioned in various end of 2024 blog posts.
+
+The refactor was initially lead by lovable.dev which has a tightly knit integration with Supabase for the backend while creating a React app for the front-end. For deployment, I opted to use Vercel for the front-end and thanks to using Supabase on the backend there was no deployment needed on that half anymore. Once the refactor PoC was in place, I augmented further feature work (user management, authentication, media searching etc.) via Windsurf agentic development interface. These tools allowed me to reach and exceed original feature parity in a fraction of the time of the original implementation, "5x more functionality with 80% less effort". 
