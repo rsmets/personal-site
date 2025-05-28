@@ -95,7 +95,7 @@ const { Content } = await entry.render();
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
-		align-items: flex-start;
+		align-items: center; /* Center alignment for mobile */
 	}
 
 	@media (min-width: 50em) {
@@ -124,6 +124,7 @@ const { Content } = await entry.render();
 		color: var(--gray-300);
 		margin: 0;
 		padding: 0;
+		text-align: center; /* Center text on mobile */
 	}
 
 	.date-item {
@@ -148,6 +149,13 @@ const { Content } = await entry.render();
 	.description {
 		font-size: var(--text-lg);
 		max-width: 54ch;
+		text-align: center; /* Center text on mobile */
+	}
+
+	@media (min-width: 50em) {
+		.description {
+			text-align: left; /* Left align on desktop */
+		}
 	}
 
 	.content {
