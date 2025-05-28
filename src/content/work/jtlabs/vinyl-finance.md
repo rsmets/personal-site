@@ -1,6 +1,6 @@
 ---
 title: Vinyl Finance
-publishDate: 2021-03-04 00:00:00
+startDate: 2021-03-04 00:00:00
 img: /assets/vinyl_finance.png
 img_alt: Vinyl Finance Logo
 description: |

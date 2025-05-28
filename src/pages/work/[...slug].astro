@@ -39,6 +39,15 @@ const { Content } = await entry.render();
 								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
 							</div>
 							<p class="description">{entry.data.description}</p>
+							<p class="date">
+								{/* Format date for display as a range or ongoing project */}
+								<span class="date-label">Started:</span> {new Date(entry.data.startDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+								{entry.data.endDate ? (
+									<> • <span class="date-label">Completed:</span> {new Date(entry.data.endDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}</>
+								) : (
+									<> • <span class="ongoing">Ongoing</span></>
+								)}
+							</p>
 						</div>
 					</Hero>
 				</div>
@@ -73,6 +82,20 @@ const { Content } = await entry.render();
 		gap: 1.5rem;
 		justify-content: space-between;
 		align-items: center;
+	}
+
+	.date {
+		font-size: var(--text-sm);
+		color: var(--gray-300);
+	}
+
+	.date-label {
+		font-weight: 600;
+	}
+
+	.ongoing {
+		color: var(--accent-regular);
+		font-weight: 600;
 	}
 
 	.tags {
