@@ -18,11 +18,7 @@ The Model Context Protocol (MCP) was open-sourced by Anthropic in November 2024,
 
 ### What is MCP?
 
-At its core, MCP defines a structured way for LLMs to interact with external tools, data sources, and services. Before MCP, every AI company had their own proprietary methods for extending model capabilities:
-
-- OpenAI had function calling
-- Anthropic had tool use
-- Google had extensions
+At its core, MCP defines a structured way for LLMs to interact with external tools, data sources, and services. Before MCP, every framework and org had its own bespoke way of doing this.
 
 This fragmentation created significant challenges for developers building cross-platform applications. MCP solves this by providing a standardized interface that works across different models and platforms.
 
@@ -30,22 +26,11 @@ This fragmentation created significant challenges for developers building cross-
 
 MCP's significance extends far beyond simple standardization. It fundamentally changes how we build AI applications by:
 
-1. **Enabling true composability** - Tools built for one LLM can be used with any MCP-compatible model
-2. **Simplifying integration** - Developers can write a single integration that works across models
-3. **Providing a consistent approach to tool use** - No more juggling different formats for different models
+1. **Enabling true composability** - Tool calls can be leveraged together via an MCP compliant client
+2. **Simplifying integration** - Developers can write an MCP server that any MCP client can leverage
+3. **Providing a consistent approach for RAG systems** - Via the sampling primitive and structured data a formal way of handling Retrieval Augmented Generation is defined
 
 As someone who's leverage modern agentic development frameworks, i.e. [Eliza](https://github.com/ai16z/eliza) and AWS Bedrock to name a couple, the way that context enrichment took place was always a bit bespoke. Now MCP standardizes this process through a simple protocol with a handful of primitives: resources, tools, prompts, and sampling. _And a handful more on the way: inputs, outputs, and more._
-
-### The Technical Implementation
-
-MCP uses a JSON-based protocol with several key components:
-
-- **Server Discovery** - How LLMs find available tools
-- **Tool Registration** - How tools advertise their capabilities
-- **Request Format** - Standardized structure for tool invocation
-- **Response Format** - Consistent way to return results
-
-The protocol is designed to be lightweight and extensible, making it easy to implement in any language or framework. Most importantly, it's stateless, allowing tools to be distributed across different services or even organizations.
 
 ### Adoption Across the Industry
 
@@ -61,8 +46,8 @@ Even companies that previously invested heavily in proprietary protocols are now
 
 The most visible impact of MCP has been in the explosion of agentic applications. Before MCP, building agents that could reliably interact with external systems required significant custom development. Now, with MCP:
 
-- **Tool ecosystems** are flourishing
-- **Complex workflows** involving multiple tools are much more reliable, _somewhat_
+- **Tool ecosystems** are flourishing _think Composio and the like_.
+- **Complex workflows** involving multiple tools are much more reliable, _somewhat_.
 
 ### The Future of MCP
 
@@ -90,8 +75,6 @@ It was while listening to Software Engineering Daily's [interview](https://softw
 
 ## Conclusion
 
-The Model Context Protocol represents a pivotal moment in AI development. By providing a unified standard for model-tool interaction, it has eliminated one of the major bottlenecks in building sophisticated AI applications.
+As we continue to push the boundaries of what's possible with LLMs, MCP will likely evolve to address new challenges and use cases. But its core promise – interoperability and standardization – has already transformed how we approach non-deterministic AI enabled application development. For developers looking to build the next generation of intelligent applications, MCP isn't just a helpful standard – it's becoming an essential foundation.
 
-As we continue to push the boundaries of what's possible with LLMs, MCP will likely evolve to address new challenges and use cases. But its core promise – interoperability and standardization – has already transformed how we approach AI development. For developers looking to build the next generation of intelligent applications, MCP isn't just a helpful standard – it's becoming an essential foundation.
-
-I think clearly there is work to be done around authorization but having this a standard emerge as a constant in an ecosystem that is been in constant flux is very positive. Another positive sign the emerging prevalence of SDK and frameworks in languages other than Python. I think this is clear signal that this sort of technology is out the data scientist's hands and is being adopted by the professional software development community.
+There is work to be done around authorization but having MCP emerge as a constant in an ecosystem that is been in break-neck speed of flux is a relief. Another positive sign the emerging prevalence of SDKs and frameworks in languages other than Python. I think this is clear signal that this sort of technology is out the data scientist's hands and is being adopted by the professional software development community. I am very excited to see (and build!) the applications that will come from this.
