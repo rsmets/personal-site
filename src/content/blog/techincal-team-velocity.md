@@ -14,7 +14,7 @@ tags:
 
 ### Ticketing Systems and Project Management
 
-I have spent the majority of my career in startup environments where developer velocity is paramount. Through my experience authoring software and leading engineering teams, I have gained appreciation for many practices that I initially found overbearing when trying to write and ship software. These practices include:
+I have spent the majority of my career in startup environments where developer velocity is paramount. Through my experience contributing source code and leading engineering teams, I have gained appreciation for many practices that I initially found overbearing when trying to write and ship software. These practices include:
 
 - Authoring RFCs (Request for Comments)
 - Code reviews
@@ -22,13 +22,13 @@ I have spent the majority of my career in startup environments where developer v
 - End-to-end testing
 - Ticket tracking
 
-I have concluded that the most detrimental of these practices is excessive ticket tracking requirements. The overhead of maintaining up-to-date tickets not only demands significant time and effort but, more critically, hampers the development of a culture where technical staff take ownership of the complete lifecycle of their work.
+I have concluded that the most detrimental of these practices is team-wide ticket tracking at the technical task level. The overhead of maintaining up-to-date tickets not only demands significant time and effort but, more critically, hampers the development of a culture where technical staff take ownership of the complete lifecycle of their work.
 
-Regarding software development, the organizational segment that benefits most from accurate ticket tracking is the product team, not the engineering team. Product team members, who don't work directly within source code management systems, lack the same visibility into development progress. In larger organizations, additional layers of reporting and management are even further removed from the software development process. This disconnect led to the emergence of various project management methodologies and certifications designed to manage software development: Kanban, Scrum, Agile, and others.
+Regarding software development, the organizational segment that benefits most from accurate ticket tracking is the product team, not the engineering team. Product team members, who don't work directly within source code management systems, lack the same visibility into development progress. In larger organizations, additional layers of reporting and management are even further removed from the software development process. This disconnect led to the emergence of various project management methodologies and certifications designed to manage software development via various forms of ticketing: Kanban, Scrum, Agile, and others.
 
 ### Side Step Middle Management
 
-One of the most memorable aspects of Paul Graham's "Hackers and Painters" was his critique of "pointy-haired middle management." While the spiky hair of the early 2000s has fortunately disappeared, the bureaucratic inefficiency associated with middle management and the operational practices that sustain it should remain a concern for those of us who write software professionally.
+One of the most memorable aspects of Paul Graham's famous "Revenge of the Nerds" essay [1] was his critique of "pointy-haired middle management." While the spiky hair of the early 2000s has fortunately disappeared, the bureaucratic inefficiency associated with middle management and the operational practices that sustain it should remain a concern for those of us who write software professionally.
 
 In my most recent professional experience, I had the opportunity to implement my beliefs by eliminating formal ticketing and the Kanban/Scrum management system that was in use. This required fostering a culture of ownership and hiring experienced developers who not only appreciated task-level ambiguity but thrived when given the autonomy to make their own implementation decisions and manage their work methods.
 
@@ -57,3 +57,5 @@ For individuals who interface with version control systems daily and employ asso
 Tooling that facilitates ticketing based on Git workflows is an evolving area that I hope continues to improve. I am confident that as foundation models advance, these service offerings will mature, allowing product teams to gain visibility they're accustomed to without requiring development teams to invest their time in ticket maintenance.
 
 In conclusion, my experience has taught me that the cornerstone practice of always seeking the "why" has led me to conclusions that are not popular. Fortunately, I have been positioned to implement some of my engineering leadership practices with considerable success. While tactics that work in one context may not work in another, I hope to always find myself on a team (or building one) that is equally eager to remove the guardrails of excessive technical project management and ticketing.
+
+[1] [Revenge of the Nerds](https://paulgraham.com/icad.html)
