@@ -58,4 +58,4 @@ Tooling that facilitates ticketing based on Git workflows is an evolving area th
 
 In conclusion, my experience has taught me that the cornerstone practice of always seeking the "why" has led me to conclusions that are not popular. Fortunately, I have been positioned to implement some of my engineering leadership practices with considerable success. While tactics that work in one context may not work in another, I hope to always find myself on a team (or building one) that is equally eager to remove the guardrails of excessive technical project management and ticketing.
 
-[1] [Revenge of the Nerds](https://paulgraham.com/icad.html)
+[1] Graham, Paul. [Revenge of the Nerds](https://paulgraham.com/icad.html). May 2002.
