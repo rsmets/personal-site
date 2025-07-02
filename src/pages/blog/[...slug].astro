@@ -150,7 +150,7 @@ const hasCitations = rawContent.includes('citation:');
 	}
 
 	.content :global(.citation-paragraph a) {
-		color: var(--accent-light) !important;
+		color: var(--accent-regular) !important;
 		text-decoration: underline !important;
 		text-decoration-color: transparent !important;
 		transition: text-decoration-color var(--theme-transition) !important;
@@ -158,6 +158,7 @@ const hasCitations = rawContent.includes('citation:');
 
 	.content :global(.citation-paragraph a:hover),
 	.content :global(.citation-paragraph a:focus) {
+		color: var(--accent-light) !important;
 		text-decoration-color: currentColor !important;
 	}
 
