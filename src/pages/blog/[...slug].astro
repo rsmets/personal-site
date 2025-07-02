@@ -25,6 +25,10 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// Check if the blog post content includes citations
+const rawContent = entry.body;
+const hasCitations = rawContent.includes('citation:');
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.description}>
@@ -47,7 +51,7 @@ const { Content } = await entry.render();
 			<main class="wrapper">
 				<div class="stack gap-10 content">
 					{entry.data.img && <img src={entry.data.img} alt={entry.data.img_alt || ''} />}
-					<div class="content">
+					<div class={`content ${hasCitations ? 'has-citations' : ''}`}>
 						<Content />
 					</div>
 				</div>
@@ -134,6 +138,66 @@ const { Content } = await entry.render();
 		text-decoration-color: currentColor;
 	}
 
+	/* Citation styling */
+	.content :global(.citation-paragraph) {
+		margin-top: 2rem !important;
+		padding: 1.5rem !important;
+		background: var(--gray-999) !important;
+		border: 1px solid var(--gray-800) !important;
+		border-radius: 0.75rem !important;
+		font-size: var(--text-sm) !important;
+		color: var(--gray-300) !important;
+	}
+
+	.content :global(.citation-paragraph a) {
+		color: var(--accent-light) !important;
+		text-decoration: underline !important;
+		text-decoration-color: transparent !important;
+		transition: text-decoration-color var(--theme-transition) !important;
+	}
+
+	.content :global(.citation-paragraph a:hover),
+	.content :global(.citation-paragraph a:focus) {
+		text-decoration-color: currentColor !important;
+	}
+
+	/* Inline citation link styling */
+	.content :global(.citation-link) {
+		color: var(--accent-regular) !important;
+		text-decoration: none !important;
+		font-weight: 500 !important;
+		padding: 0.1rem 0.2rem !important;
+		border-radius: 0.25rem !important;
+		transition: all var(--theme-transition) !important;
+	}
+
+	.content :global(.citation-link:hover),
+	.content :global(.citation-link:focus) {
+		background: var(--accent-regular) !important;
+		color: var(--gray-999) !important;
+		text-decoration: none !important;
+	}
+
+	/* References header styling */
+	.content :global(.citation-header-container) {
+		margin-top: 3rem !important;
+		margin-bottom: 1rem !important;
+		padding: 0 !important;
+		background: none !important;
+		border: none !important;
+	}
+
+	.content :global(.citation-header) {
+		font-size: var(--text-base) !important;
+		font-weight: 400 !important;
+		color: var(--gray-400) !important;
+		text-transform: uppercase !important;
+		letter-spacing: 0.1em !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		opacity: 0.7 !important;
+	}
+
 	@media (min-width: 50em) {
 		.back-link {
 			display: block;
@@ -150,3 +214,66 @@ const { Content } = await entry.render();
 		}
 	}
 </style>
+
+<script is:inline>
+	// Enhanced citation system with clickable links
+	function setupCitations() {
+		const contentDiv = document.querySelector('.content');
+		if (!contentDiv) return;
+
+		const paragraphs = contentDiv.querySelectorAll('p');
+		const citationMap = new Map();
+
+		// First pass: Find citation trigger and replace with styled header
+		paragraphs.forEach(p => {
+			const text = p.textContent?.trim() || '';
+			// Check if paragraph contains citation trigger
+			if (text === 'citation:') {
+				// Replace with styled References header
+				p.innerHTML = '<h3 class="citation-header">References</h3>';
+				p.classList.add('citation-header-container');
+			}
+		});
+
+		// Second pass: Find and style citation paragraphs, create ID map
+		paragraphs.forEach(p => {
+			const text = p.textContent?.trim() || '';
+			// Check if paragraph starts with citation pattern like [1], [2], etc.
+			const match = text.match(/^\[(\d+)\]/);
+			if (match) {
+				const citationNumber = match[1];
+				const citationId = `citation-${citationNumber}`;
+
+				// Style the citation paragraph
+				p.classList.add('citation-paragraph');
+				p.id = citationId;
+
+				// Store in map for linking
+				citationMap.set(citationNumber, citationId);
+			}
+		});
+
+		// Third pass: Convert inline citations to clickable links
+		paragraphs.forEach(p => {
+			// Skip citation paragraphs themselves
+			if (p.classList.contains('citation-paragraph')) return;
+
+			// Find inline citations like [1], [2], etc. and convert to links
+			let html = p.innerHTML;
+			html = html.replace(/\[(\d+)\]/g, (match, number) => {
+				if (citationMap.has(number)) {
+					return `<a href="#citation-${number}" class="citation-link">${match}</a>`;
+				}
+				return match;
+			});
+			p.innerHTML = html;
+		});
+	}
+
+	// Run immediately and also on DOM ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', setupCitations);
+	} else {
+		setupCitations();
+	}
+</script>
