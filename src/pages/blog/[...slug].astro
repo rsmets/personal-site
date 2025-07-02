@@ -188,13 +188,14 @@ const hasCitations = rawContent.includes('citation:');
 	}
 
 	.content :global(.citation-header) {
-		font-size: var(--text-xl) !important;
-		font-weight: 600 !important;
-		color: var(--gray-200) !important;
-		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+		font-size: var(--text-base) !important;
+		font-weight: 400 !important;
+		color: var(--gray-400) !important;
+		text-transform: uppercase !important;
+		letter-spacing: 0.1em !important;
 		margin: 0 !important;
 		padding: 0 !important;
-		letter-spacing: 0.025em !important;
+		opacity: 0.7 !important;
 	}
 
 	@media (min-width: 50em) {
