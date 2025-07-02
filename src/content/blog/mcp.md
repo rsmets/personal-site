@@ -30,7 +30,7 @@ MCP's significance extends far beyond simple standardization. It fundamentally c
 2. **Simplifying integration** - Developers can write an MCP server that any MCP client can leverage
 3. **Providing a consistent approach for RAG systems** - Via the sampling primitive and structured data a formal way of handling Retrieval Augmented Generation is defined
 
-As someone who's leverage modern agentic development frameworks, i.e. [Eliza](https://github.com/ai16z/eliza) and AWS Bedrock to name a couple, the way that context enrichment took place was always a bit bespoke. Now MCP standardizes this process through a simple protocol with a handful of primitives: resources, tools, prompts, and sampling. _And a handful more on the way: inputs, outputs, and more._
+As someone who has leveraged modern agentic development frameworks, i.e. [Eliza](https://github.com/ai16z/eliza) and AWS Bedrock to name a couple, the way that context enrichment took place was always a bit bespoke. Now MCP standardizes this process through a simple protocol with a handful of primitives: resources, tools, prompts, and sampling. _And a handful more on the way: inputs, outputs, and more._
 
 ### Adoption Across the Industry
 
@@ -71,10 +71,10 @@ Some of my favorite tools in the space to date:
 
 ## How to Keep Up
 
-It was while listening to Software Engineering Daily's [interview](https://softwareengineeringdaily.com/2025/05/13/anthropic-and-the-model-context-protocol-with-david-soria-parra/) with the MCP co-create David Soria Parra on May 13th, 2025, that I realized just how nascent this pivotal ecosystem is. Living in San Francisco, I immediately dropped everything I was doing and look for in person MCP meetups and was attending my first one at Github's HQ downtown later that day. Since then I have attended a handful of different events of the last two weeks. The most engaging one was the [MCP Dev Summit](https://mcpdevsummit.ai/), where I got to talk with David and other's on the MCP steering committee about the future of MCP. I'll be attending another meet up later today.
+It was while listening to Software Engineering Daily's [interview](https://softwareengineeringdaily.com/2025/05/13/anthropic-and-the-model-context-protocol-with-david-soria-parra/) with the MCP co-creator David Soria Parra on May 13th, 2025, that I realized just how nascent this pivotal ecosystem is. Living in San Francisco, I immediately dropped everything I was doing and looked for in-person MCP meetups and was attending my first one at Github's HQ downtown later that day. Since then I have attended a handful of different events over the last two weeks. The most engaging one was the [MCP Dev Summit](https://mcpdevsummit.ai/), where I got to talk with David and others on the MCP steering committee about the future of MCP. I'll be attending another meetup later today.
 
 ## Conclusion
 
 As we continue to push the boundaries of what's possible with LLMs, MCP will likely evolve to address new challenges and use cases. But its core promise – interoperability and standardization – has already transformed how we approach non-deterministic AI enabled application development. For developers looking to build the next generation of intelligent applications, MCP isn't just a helpful standard – it's becoming an essential foundation.
 
-There is work to be done around authorization but having MCP emerge as a constant in an ecosystem that is been in break-neck speed of flux is a relief. Another positive sign the emerging prevalence of SDKs and frameworks in languages other than Python. I think this is clear signal that this sort of technology is out the data scientist's hands and is being adopted by the professional software development community. I am very excited to see (and build!) the applications that will come from this.
+There is work to be done around authorization, but having MCP emerge as a constant in an ecosystem that has been in breakneck speed of flux is a relief. Another positive sign is the emerging prevalence of SDKs and frameworks in languages other than Python. I think this is a clear signal that this sort of technology is out of the data scientist's hands and is being adopted by the professional software development community. I am very excited to see (and build!) the applications that will come from this.
