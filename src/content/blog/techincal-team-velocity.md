@@ -58,6 +58,10 @@ Tooling that facilitates ticketing based on Git workflows is an evolving area th
 
 In conclusion, my experience has taught me that the cornerstone practice of always seeking the "why" has led me to conclusions that are not popular. Fortunately, I have been positioned to implement some of my engineering leadership practices with considerable success. I acknowledge that introducing "development speedbumps" often come with scale and stability, but they should be introduced with caution and only after careful consideration of the context - not compulsively. While tactics that work in one context may not work in another, I hope to always find myself on a team (or building one) that is equally eager to remove the guardrails of traditional technical project management and ticketing. I also look forward to embracing and leveraging new ways of organization-wide enablement as tooling continues to evolve.
 
+citation:
+
 [1] Graham, Paul. [Hackers & Painters](https://paulgraham.com/hackpaint.html). 2004.
+
 [2] Graham, Paul. [Revenge of the Nerds](https://paulgraham.com/icad.html). May 2002.
+
 [3] Hastings, Reed, and Meyer, Erin. [No Rules Rules: Netflix and the Culture of Reinvention](https://www.norulesrules.com/). 2020.

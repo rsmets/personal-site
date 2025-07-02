@@ -25,6 +25,10 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// Check if the blog post content includes citations
+const rawContent = entry.body;
+const hasCitations = rawContent.includes('citation:');
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.description}>
@@ -47,7 +51,7 @@ const { Content } = await entry.render();
 			<main class="wrapper">
 				<div class="stack gap-10 content">
 					{entry.data.img && <img src={entry.data.img} alt={entry.data.img_alt || ''} />}
-					<div class="content">
+					<div class={`content ${hasCitations ? 'has-citations' : ''}`}>
 						<Content />
 					</div>
 				</div>
@@ -134,6 +138,31 @@ const { Content } = await entry.render();
 		text-decoration-color: currentColor;
 	}
 
+	/* Citation styling */
+	.content :global(.citation-paragraph) {
+		margin-top: 2rem !important;
+		padding: 1.5rem !important;
+		background: var(--gray-999) !important;
+		border: 1px solid var(--gray-800) !important;
+		border-radius: 0.75rem !important;
+		font-size: var(--text-sm) !important;
+		color: var(--gray-300) !important;
+	}
+
+	.content :global(.citation-paragraph a) {
+		color: var(--accent-light) !important;
+		text-decoration: underline !important;
+		text-decoration-color: transparent !important;
+		transition: text-decoration-color var(--theme-transition) !important;
+	}
+
+	.content :global(.citation-paragraph a:hover),
+	.content :global(.citation-paragraph a:focus) {
+		text-decoration-color: currentColor !important;
+	}
+
+
+
 	@media (min-width: 50em) {
 		.back-link {
 			display: block;
@@ -150,3 +179,27 @@ const { Content } = await entry.render();
 		}
 	}
 </style>
+
+<script is:inline>
+	// Detect and style citation paragraphs
+	function styleCitations() {
+		const contentDiv = document.querySelector('.content');
+		if (!contentDiv) return;
+
+		const paragraphs = contentDiv.querySelectorAll('p');
+		paragraphs.forEach(p => {
+			const text = p.textContent?.trim() || '';
+			// Check if paragraph starts with citation pattern like [1], [2], etc.
+			if (/^\[\d+\]/.test(text)) {
+				p.classList.add('citation-paragraph');
+			}
+		});
+	}
+
+	// Run immediately and also on DOM ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', styleCitations);
+	} else {
+		styleCitations();
+	}
+</script>
