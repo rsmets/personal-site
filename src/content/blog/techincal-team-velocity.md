@@ -1,5 +1,5 @@
 ---
-title: Engineering Leadership Hot Take - Technical Team Velocity
+title: Engineering Leadership Hot Take - Ditch Your Ticketing System
 publishDate: 2025-07-02
 # img: /assets/project-management.jpeg
 # img_alt: Project management workflow diagram showing team velocity concepts
@@ -14,7 +14,7 @@ tags:
 
 ### Ticketing Systems and Project Management
 
-I have spent the majority of my career in startup environments where developer velocity is paramount. Through my experience contributing source code and leading engineering teams, I have gained appreciation for many practices that I initially found overbearing when trying to write and ship software. These practices include:
+I have spent the majority of my career in startup environments where developer velocity is paramount. Through my experience contributing source code and leading engineering teams, I have gained appreciation for many practices that I initially found overbearing when trying to write and ship software professionally. These practices include:
 
 - Authoring RFCs (Request for Comments)
 - Code reviews
@@ -22,9 +22,9 @@ I have spent the majority of my career in startup environments where developer v
 - End-to-end testing
 - Ticket tracking
 
-I have concluded that the most detrimental of these practices is team-wide ticket tracking at the technical task level. The overhead of maintaining up-to-date tickets not only demands significant time and effort but, more critically, hampers the development of a culture where technical staff take ownership of the complete lifecycle of their work.
+While this list appears to be high-level overview software authoring best practices, I feel the practice of team-wide ticket tracking at the technical task level is, in fact, detrimental. The overhead of maintaining up-to-date tickets not only demands significant time and effort but, more critically, hampers the development of a culture where technical staff take ownership of the complete lifecycle of their work.
 
-Regarding software development, the organizational segment that benefits most from accurate ticket tracking is the product team, not the engineering team. Product team members, who don't work directly within source code management systems, lack the same visibility into development progress. In larger organizations, additional layers of reporting and management are even further removed from the software development process. This disconnect led to the emergence of various project management methodologies and certifications designed to manage software development via various forms of ticketing: Kanban, Scrum, Agile, and others.
+Regarding software development, the organizational segment that benefits most from accurate ticket tracking is the product team, not the engineering team. Product team members, who don't work directly within source code management systems, lack the same visibility into development progress. In larger organizations, additional layers of reporting and management are even further removed from the software development process. This disconnect led to the emergence of various project management methodologies and certifications designed to manage software development via various forms of ticketing: Kanban, Scrum, Agile, and others. While which the decision of which of these processes to use is belabored over, I argue that the means of achieving them via ticket tracking is not ideal.
 
 ### Side Step Tactics Employed by Middle Management
 
@@ -56,8 +56,8 @@ For individuals who interface with version control systems daily and employ asso
 
 Tooling that facilitates ticketing based on Git workflows is an evolving area that I hope continues to improve. I am confident that as foundation models advance, these service offerings will also mature, allowing product teams to gain visibility more naturally (via natural language) into them without requiring development teams to invest their time in ticket maintenance.
 
-In conclusion, my experience has taught me that the cornerstone practice of always seeking the "why" has led me to conclusions that are not popular. Fortunately, I have been positioned to implement some of my engineering leadership practices with considerable success. While tactics that work in one context may not work in another, I hope to always find myself on a team (or building one) that is equally eager to remove the guardrails of traditional technical project management and ticketing. I also look forward to embracing and leveraging new ways of organization-wide enablement as tooling continues to evolve.
+In conclusion, my experience has taught me that the cornerstone practice of always seeking the "why" has led me to conclusions that are not popular. Fortunately, I have been positioned to implement some of my engineering leadership practices with considerable success. I acknowledge that introducing "development speedbumps" often come with scale and stability, but they should be introduced with caution and only after careful consideration of the context - not compulsively. While tactics that work in one context may not work in another, I hope to always find myself on a team (or building one) that is equally eager to remove the guardrails of traditional technical project management and ticketing. I also look forward to embracing and leveraging new ways of organization-wide enablement as tooling continues to evolve.
 
 [1] Graham, Paul. [Hackers & Painters](https://paulgraham.com/hackpaint.html). 2004.
 [2] Graham, Paul. [Revenge of the Nerds](https://paulgraham.com/icad.html). May 2002.
-[3] Hastings, Reed, and Erin Meyer. No Rules Rules: Netflix and the Culture of Reinvention. Penguin Press, 2020.
+[3] Hastings, Reed, and Meyer, Erin. [No Rules Rules: Netflix and the Culture of Reinvention](https://www.norulesrules.com/). 2020.
