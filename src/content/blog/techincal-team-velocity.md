@@ -5,7 +5,7 @@ publishDate: 2025-07-02
 # img_alt: Project management workflow diagram showing team velocity concepts
 category: leadership
 description: |
-  Engineering organizations are required to introduce development velocity speed bumps... but I feel one in particular can be acutely detrimental.
+  Engineering organizations are required to introduce development velocity speed bumps, but I feel one in particular can be acutely detrimental.
 tags:
   - Operations
   - Workplace Culture
