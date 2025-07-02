@@ -178,6 +178,25 @@ const hasCitations = rawContent.includes('citation:');
 		text-decoration: none !important;
 	}
 
+	/* References header styling */
+	.content :global(.citation-header-container) {
+		margin-top: 3rem !important;
+		margin-bottom: 1rem !important;
+		padding: 0 !important;
+		background: none !important;
+		border: none !important;
+	}
+
+	.content :global(.citation-header) {
+		font-size: var(--text-xl) !important;
+		font-weight: 600 !important;
+		color: var(--gray-200) !important;
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		letter-spacing: 0.025em !important;
+	}
+
 	@media (min-width: 50em) {
 		.back-link {
 			display: block;
@@ -204,7 +223,18 @@ const hasCitations = rawContent.includes('citation:');
 		const paragraphs = contentDiv.querySelectorAll('p');
 		const citationMap = new Map();
 
-		// First pass: Find and style citation paragraphs, create ID map
+		// First pass: Find citation trigger and replace with styled header
+		paragraphs.forEach(p => {
+			const text = p.textContent?.trim() || '';
+			// Check if paragraph contains citation trigger
+			if (text === 'citation:') {
+				// Replace with styled References header
+				p.innerHTML = '<h3 class="citation-header">References</h3>';
+				p.classList.add('citation-header-container');
+			}
+		});
+
+		// Second pass: Find and style citation paragraphs, create ID map
 		paragraphs.forEach(p => {
 			const text = p.textContent?.trim() || '';
 			// Check if paragraph starts with citation pattern like [1], [2], etc.
@@ -222,7 +252,7 @@ const hasCitations = rawContent.includes('citation:');
 			}
 		});
 
-		// Second pass: Convert inline citations to clickable links
+		// Third pass: Convert inline citations to clickable links
 		paragraphs.forEach(p => {
 			// Skip citation paragraphs themselves
 			if (p.classList.contains('citation-paragraph')) return;
