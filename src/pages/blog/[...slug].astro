@@ -161,7 +161,22 @@ const hasCitations = rawContent.includes('citation:');
 		text-decoration-color: currentColor !important;
 	}
 
+	/* Inline citation link styling */
+	.content :global(.citation-link) {
+		color: var(--accent-regular) !important;
+		text-decoration: none !important;
+		font-weight: 500 !important;
+		padding: 0.1rem 0.2rem !important;
+		border-radius: 0.25rem !important;
+		transition: all var(--theme-transition) !important;
+	}
 
+	.content :global(.citation-link:hover),
+	.content :global(.citation-link:focus) {
+		background: var(--accent-regular) !important;
+		color: var(--gray-999) !important;
+		text-decoration: none !important;
+	}
 
 	@media (min-width: 50em) {
 		.back-link {
@@ -181,25 +196,53 @@ const hasCitations = rawContent.includes('citation:');
 </style>
 
 <script is:inline>
-	// Detect and style citation paragraphs
-	function styleCitations() {
+	// Enhanced citation system with clickable links
+	function setupCitations() {
 		const contentDiv = document.querySelector('.content');
 		if (!contentDiv) return;
 
 		const paragraphs = contentDiv.querySelectorAll('p');
+		const citationMap = new Map();
+
+		// First pass: Find and style citation paragraphs, create ID map
 		paragraphs.forEach(p => {
 			const text = p.textContent?.trim() || '';
 			// Check if paragraph starts with citation pattern like [1], [2], etc.
-			if (/^\[\d+\]/.test(text)) {
+			const match = text.match(/^\[(\d+)\]/);
+			if (match) {
+				const citationNumber = match[1];
+				const citationId = `citation-${citationNumber}`;
+
+				// Style the citation paragraph
 				p.classList.add('citation-paragraph');
+				p.id = citationId;
+
+				// Store in map for linking
+				citationMap.set(citationNumber, citationId);
 			}
+		});
+
+		// Second pass: Convert inline citations to clickable links
+		paragraphs.forEach(p => {
+			// Skip citation paragraphs themselves
+			if (p.classList.contains('citation-paragraph')) return;
+
+			// Find inline citations like [1], [2], etc. and convert to links
+			let html = p.innerHTML;
+			html = html.replace(/\[(\d+)\]/g, (match, number) => {
+				if (citationMap.has(number)) {
+					return `<a href="#citation-${number}" class="citation-link">${match}</a>`;
+				}
+				return match;
+			});
+			p.innerHTML = html;
 		});
 	}
 
 	// Run immediately and also on DOM ready
 	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', styleCitations);
+		document.addEventListener('DOMContentLoaded', setupCitations);
 	} else {
-		styleCitations();
+		setupCitations();
 	}
 </script>
