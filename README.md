@@ -8,4 +8,4 @@ Made with ❤️ and [Astro](https://docs.astro.build).
 
 ## Deployment
 
-Site is currently deployed via Vercel to [raysmets.me](https://raysmets.me).
+Site is currently deployed via Vercel to [raysmets.com](https://raysmets.com).

@@ -67,12 +67,12 @@ Lovable.dev eliminates the need for extensive full-stack knowledge, empowering d
 
 ## The Rise of Open-Source Agentic AI Frameworks
 
-The past two months have seen open-source agentic AI frameworks take off, democratizing access to advanced platform level AI capabilities. I talked about my favorite, Eliza, in a previous blog post, [Agentic AI Tooling](https://www.raysmets.me/blog/agentic-ai-tooling). It's frameworks and developer experience strides like Eliza that really feels like a Linux moment for the Agentic AI powered application developers.
+The past two months have seen open-source agentic AI frameworks take off, democratizing access to advanced platform level AI capabilities. I talked about my favorite, Eliza, in a previous blog post, [Agentic AI Tooling](https://www.raysmets.com/blog/agentic-ai-tooling). It's frameworks and developer experience strides like Eliza that really feels like a Linux moment for the Agentic AI powered application developers.
 
 ## Conclusion
 
 From Windsurf's intelligent fully contextual code editing to Lovable.dev's full-stack agentic development convenience, these tools enable applications to be authored with the need for a seasoned developer at the helm.
 
-Soon, I plan to relaunch [Found Audio](https://www.raysmets.me/work/found-audio) with the core app source code created with Lovable.dev and higher level feature augmented and authored in Windsurf. Definitely, will be documenting that process! _I'll leave you to compare final outputs implementations - for sure the UI will have a leg up, but also my postgres service provider is sunset end of January 2025 so Supabase is looking more and more enticing..._
+Soon, I plan to relaunch [Found Audio](https://www.raysmets.com/work/found-audio) with the core app source code created with Lovable.dev and higher level feature augmented and authored in Windsurf. Definitely, will be documenting that process! _I'll leave you to compare final outputs implementations - for sure the UI will have a leg up, but also my postgres service provider is sunset end of January 2025 so Supabase is looking more and more enticing..._
 
 _Updated 2025-01-08: The new site is coming along swimmingly. I have about 5x the original functionality with 80% less effort to build. You can read more about this effort [here](/work/found-audio)._

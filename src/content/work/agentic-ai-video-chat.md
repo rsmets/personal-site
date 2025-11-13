@@ -12,9 +12,9 @@ tags:
   - AI Tooling
 ---
 
-This was an incredibly fun project getting hands-on with the [AI tooling](https://www.raysmets.me/blog/agentic-ai-tooling) from my blog post.
+This was an incredibly fun project getting hands-on with the [AI tooling](https://www.raysmets.com/blog/agentic-ai-tooling) from my blog post.
 
-It was my first time using an agentic AI framework, [Eliza](https://github.com/ai16z/eliza), giving this project a new element compared to the [David Attenborough AI](<(https://www.raysmets.me/blog/gen-ai-david)>) voice project from the previous year. The built-in Eliza vector database support made persisting memory across processes trivial, which allowed for much more lifelike interactions than ephemerally provided context from the David Attenborough project.
+It was my first time using an agentic AI framework, [Eliza](https://github.com/ai16z/eliza), giving this project a new element compared to the [David Attenborough AI](<(https://www.raysmets.com/blog/gen-ai-david)>) voice project from the previous year. The built-in Eliza vector database support made persisting memory across processes trivial, which allowed for much more lifelike interactions than ephemerally provided context from the David Attenborough project.
 
 ### Implementation
 

@@ -51,4 +51,4 @@ I would be remiss not to mention the [RealTime](https://openai.com/index/introdu
 
 ### Demo
 
-The best way to keep on top of these tools is to use them! So, using Eliza, I cloned myself, my mother-in-law, and Santa into an AI agent with knowledge, memories, and uniquely styled communication patterns. They were powered by OpenAI's GPT-4o, and I used ElevenLabs and Simili for the voices and avatars. Putting it all together, I had AI agents that my family could converse with this Thanksgiving. [Check it out](https://www.raysmets.me/work/agentic-ai-video-chat).
+The best way to keep on top of these tools is to use them! So, using Eliza, I cloned myself, my mother-in-law, and Santa into an AI agent with knowledge, memories, and uniquely styled communication patterns. They were powered by OpenAI's GPT-4o, and I used ElevenLabs and Simili for the voices and avatars. Putting it all together, I had AI agents that my family could converse with this Thanksgiving. [Check it out](https://www.raysmets.com/work/agentic-ai-video-chat).
