@@ -37,9 +37,15 @@ My Kiro CLI returned a more minimal table with Instance ID, Type, and State. It 
 
 ### Prompt 2: Requesting More Detail
 
-Because Yolo had already surfaced AZ information unprompted, my follow-up to Yolo was simply: _"Can you give me more detailed info about these instances?"_ For my Kiro setup, I had to be more specific: _"Can you give me more info about these instances such as the AZ they are in?"_
+Because Yolo had already surfaced AZ information unprompted, my follow-up to Yolo was simply: _"Can you give me more detailed info about these instances?"_ For my Kiro setup, I had to be more specific: _"Can you give me more info about these instances such as the AZ they are in?"_ Yolo's proactive verbosity in the first prompt saved me a round trip here.
 
-Both tools delivered the requested detail. The takeaway here is that Yolo's default verbosity saved a round trip. Whether that is a feature or noise depends on your preference, but for exploratory queries it is a nice touch.
+![Side-by-side comparison of detailed EC2 instance information from Yolo CLI and Kiro CLI](/assets/yolo-vs-kiro-ec2-details.png)
+
+Yolo returned a dense table covering Instance ID, Type, State, VPC, Subnet, Security Group, AMI, Root Volume, EBS Volume size, and Launch Time. It then went further with additional sections on Architecture and Virtualization (x86_64, HVM, Xen hypervisor, UEFI boot mode), Storage (EBS volumes, termination behavior), Networking (ENA, source/destination check, IMDSv2), IAM Roles, and EKS Tags. It was thorough.
+
+My Kiro CLI returned a cleaner table with Instance ID, AZ, Private IP, VPC, Subnet, Launched, and Platform. It also added some useful contextual observations: the first two instances are in the same VPC and subnet (us-west-2b), launched about a minute apart, likely part of the same deployment. The third is in a different VPC entirely (us-west-2a) with a different private IP range. It then offered to dig into security groups, IAM roles, or instance purpose.
+
+The difference in approach is interesting. Yolo dumps everything it can find upfront. Kiro surfaces a curated summary and offers to go deeper on specific areas. Both are valid strategies depending on whether you want breadth or guided exploration.
 
 ### Prompt 3: "Can you give me cost information for all my resources?"
 
