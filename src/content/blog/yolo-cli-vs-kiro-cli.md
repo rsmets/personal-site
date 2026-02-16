@@ -95,6 +95,50 @@ My Kiro CLI structured its response into three sections as well: Compute Resourc
 
 The Yolo output has consistently been better formatted. I suspect I could improve my local setup's formatting through more explicit prompting, but the difference was noticeable throughout this comparison.
 
+### Prompt 6: "Can you do a Well-Architected review over my AWS account and its services with special attention to security?"
+
+This was the most ambitious prompt of the comparison, and I only ran it through Yolo. The output was extensive enough to warrant multiple screenshots.
+
+![Yolo Well-Architected Review part 1: Executive Summary and Critical Security Findings](/assets/yolo/war-yolo-1.png)
+
+Yolo produced a full Well-Architected Review with an Executive Summary table rating each pillar: Security at Medium Risk with 8 high-priority findings, Operational Excellence at Medium with 3 findings, Reliability and Performance both Good with minor findings, and Cost Optimization at Medium with 3 findings.
+
+It then dove into Critical Security Findings. Finding 1: No IAM Password Policy configured, with a complete `aws iam update-account-password-policy` remediation command. Finding 2: No MFA on Root Account, flagging complete account compromise risk if credentials leak.
+
+![Yolo Well-Architected Review part 2: EKS, Security Groups, and Kubernetes findings](/assets/yolo/war-yolo-2.png)
+
+Finding 3: EKS API Server Publicly Accessible (`endpointPublicAccess: true` on flowops-dev-eks), with recommendations to restrict CIDR ranges or switch to private-only endpoint access. Finding 4: Security Groups allowing 0.0.0.0/0 access, with a table identifying three offending security groups including one exposing Redshift on port 5439 to the internet, flagged as critical with a ready-to-run `aws ec2 revoke-security-group-ingress` command. Finding 5: No Kubernetes Network Policies in the flowops namespace, with a sample default-deny NetworkPolicy YAML.
+
+![Yolo Well-Architected Review part 3: Pod security, monitoring, tagging, and Security Strengths](/assets/yolo/war-yolo-3.png)
+
+Finding 6: Pods Running as Root with no `runAsNonRoot: true` configured, including a full `securityContext` remediation snippet. Finding 7: EC2 Instances Without Detailed Monitoring. Finding 8: No Resource-Level Tags for Cost Allocation. It then listed Security Strengths: EBS Encryption enabled with KMS, S3 Encryption with KMS-SSE, and more.
+
+![Yolo Well-Architected Review part 4: Full strengths table, other pillar findings, and Priority Action Plan](/assets/yolo/war-yolo-4.png)
+
+The Security Strengths table continued with S3 Public Access Block, CloudTrail with multi-region log validation, GuardDuty with active threat detection, IMDSv2 enforced on all EC2 instances, EKS Control Plane Logging, and good VPC design with private subnets. It then covered Other Findings across Reliability (single AZ deployment, no RDS Multi-AZ), Performance (EBS not optimized), and Cost Optimization (cluster under-utilized at 30% CPU, no Reserved Instances/Savings Plans, 20 S3 buckets with some unused). A Priority Action Plan followed with Immediate (within 24 hours), Short-term (within 1 week), and Medium-term (within 1 month) categories.
+
+![Yolo Well-Architected Review part 5: Security Score and Next Steps](/assets/yolo/war-yolo-5.png)
+
+The review concluded with a Security Score of 72/100, broken down by category: Identity and Access at 60/100, Network Security at 70/100, Data Protection at 93/100, Logging and Monitoring at 85/100, and Incident Response at 75/100. It offered to generate the specific commands or Kubernetes manifests needed to implement any of the recommendations.
+
+This was the most impressive Yolo output of the entire comparison. The depth, structure, and actionability of the findings, complete with copy-paste remediation commands and prioritized timelines, is exactly the kind of proactive resource management that differentiates a tool from a wrapper around `aws cli`.
+
+Below are the slightly less verbose local Kiro CLI output screenshots for the same prompt.
+
+![Kiro CLI Well-Architected Review part 1: Security Pillar with What's Good and Critical Findings](/assets/yolo/war-kiro-1.png)
+
+My Kiro CLI organized the review by pillar, starting with the Security Pillar (Primary Focus). It led with "What's Good": IMDSv2 enforced, no public IPs, no IAM users (roles/federated access only), CloudTrail enabled with multi-region log file validation, GuardDuty active, EKS secrets encrypted with a customer-managed key, all 5 EKS control plane log types enabled, S3 public access blocked, and ALB using HTTPS with SSL cert and HTTP-to-HTTPS redirect. Then Critical Findings: EKS public endpoint open to 0.0.0.0/0 (with a link to the EKS docs on cluster endpoint access), Redshift security group open on port 5439, no Kubernetes NetworkPolicies (with a link to the EKS network policy docs), default VPC security groups allowing all inbound, no VPC Flow Logs (with a docs link), and EKS deletion protection disabled.
+
+![Kiro CLI Well-Architected Review part 2: Reliability, Operational Excellence, and Performance Efficiency Pillars](/assets/yolo/war-kiro-2.png)
+
+The Reliability Pillar noted single-replica deployments across all 6 flowops services, 2 AZs configured, ALB controller running 2 replicas with pod anti-affinity, EKS upgrade readiness passing for v1.32, and liveness/readiness probes on all services. Operational Excellence highlighted Infrastructure as Code via CDK/CloudFormation, Helm-managed deployments, no EKS managed add-ons, untagged EC2 instances, and a stale VPC that appears to be a leftover from a previous deployment. Performance Efficiency found resources right-sized for dev, EKS Auto Mode enabled, but all containers using `:latest` tags making rollbacks non-deterministic.
+
+![Kiro CLI Well-Architected Review part 3: Cost Optimization Pillar and Priority Remediation List](/assets/yolo/war-kiro-3.png)
+
+The Cost Optimization Pillar flagged 20 S3 buckets with apparent duplicates, 5 VPCs with one stale, and no Savings Plans or Reserved Instances for the 3 always-on c6a.large instances. It concluded with a Priority Remediation List table ranking 10 items by priority and effort, from restricting EKS public endpoint CIDRs (Priority 1, Low effort) down to cleaning up stale VPCs and duplicate S3 buckets (Priority 10, Low effort). It completed in 1 minute 19 seconds and offered to help remediate the low-effort changes directly.
+
+I actually preferred my bespoke setup's output for this prompt since it covered each Well-Architected pillar in its own clearly defined section with a consistent structure. It also included documentation references inline, which is a nice touch for actionability. That said, the Yolo output was more comprehensive overall, with richer detail in the security findings and ready-to-run remediation commands.
+
 ## Analysis
 
 ### Where Yolo Shines
