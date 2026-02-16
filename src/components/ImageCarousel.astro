@@ -1,0 +1,200 @@
+---
+/**
+ * ImageCarousel.astro
+ * 
+ * A reusable image carousel component for blog posts.
+ * Accepts an array of slides, each with a src, alt, and caption.
+ * Uses pure CSS for styling and vanilla JS for navigation.
+ * 
+ * Usage in MDX:
+ *   import ImageCarousel from '../../components/ImageCarousel.astro';
+ *   <ImageCarousel slides={[
+ *     { src: "/assets/example.png", alt: "Description", caption: "Caption text" }
+ *   ]} />
+ */
+
+interface Slide {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+interface Props {
+  slides: Slide[];
+}
+
+const { slides } = Astro.props;
+
+// Generate a unique ID for each carousel instance so multiple can coexist on one page
+const carouselId = `carousel-${Math.random().toString(36).substring(2, 9)}`;
+---
+
+<div class="carousel" id={carouselId} data-current="0">
+  <div class="carousel-inner">
+    {slides.map((slide, i) => (
+      <div class={`carousel-slide ${i === 0 ? 'active' : ''}`} data-index={i}>
+        <img src={slide.src} alt={slide.alt} loading="lazy" />
+        <p class="carousel-caption">{slide.caption}</p>
+      </div>
+    ))}
+  </div>
+  <!-- Navigation buttons -->
+  <button class="carousel-btn prev" aria-label="Previous slide">&#8249;</button>
+  <button class="carousel-btn next" aria-label="Next slide">&#8250;</button>
+  <!-- Dot indicators -->
+  <div class="carousel-dots">
+    {slides.map((_, i) => (
+      <button
+        class={`carousel-dot ${i === 0 ? 'active' : ''}`}
+        data-index={i}
+        aria-label={`Go to slide ${i + 1}`}
+      />
+    ))}
+  </div>
+</div>
+
+<style>
+  /* Carousel container */
+  .carousel {
+    position: relative;
+    width: 100%;
+    margin: 1.5rem 0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: var(--gray-999);
+    border: 1px solid var(--gray-800);
+  }
+
+  .carousel-inner {
+    position: relative;
+    width: 100%;
+  }
+
+  /* Individual slides: hidden by default, shown when active */
+  .carousel-slide {
+    display: none;
+    width: 100%;
+  }
+
+  .carousel-slide.active {
+    display: block;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+  }
+
+  /* Caption below each image */
+  .carousel-caption {
+    padding: 0.75rem 1rem;
+    margin: 0;
+    font-size: var(--text-sm, 0.875rem);
+    color: var(--gray-300, #999);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* Prev/Next navigation buttons */
+  .carousel-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    z-index: 2;
+    transition: background 0.2s;
+    line-height: 1;
+  }
+
+  .carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .carousel-btn.prev {
+    left: 0.5rem;
+  }
+
+  .carousel-btn.next {
+    right: 0.5rem;
+  }
+
+  /* Dot indicators */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0 0.75rem;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--gray-600, #666);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s;
+  }
+
+  .carousel-dot.active {
+    background: var(--accent-regular, #4f8aff);
+    border-color: var(--accent-regular, #4f8aff);
+  }
+</style>
+
+<script is:inline>
+  /**
+   * Carousel navigation logic.
+   * Attaches click handlers to prev/next buttons and dot indicators.
+   * Each carousel instance is scoped by its unique container ID.
+   */
+  document.addEventListener('DOMContentLoaded', () => {
+    // Find all carousel instances on the page
+    document.querySelectorAll('.carousel').forEach((carousel) => {
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const dots = carousel.querySelectorAll('.carousel-dot');
+      const prevBtn = carousel.querySelector('.carousel-btn.prev');
+      const nextBtn = carousel.querySelector('.carousel-btn.next');
+      let current = 0;
+
+      /**
+       * Navigate to a specific slide index.
+       * Handles wrapping (last -> first, first -> last).
+       */
+      function goTo(index) {
+        // Wrap around if out of bounds
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+
+        // Deactivate current slide and dot
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+
+        // Activate target slide and dot
+        current = index;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+
+      // Prev/Next button handlers
+      prevBtn.addEventListener('click', () => goTo(current - 1));
+      nextBtn.addEventListener('click', () => goTo(current + 1));
+
+      // Dot click handlers
+      dots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          goTo(parseInt(dot.dataset.index));
+        });
+      });
+    });
+  });
+</script>
