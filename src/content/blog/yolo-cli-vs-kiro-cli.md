@@ -71,6 +71,16 @@ The IDE's output was remarkably detailed. It covered EC2, EKS clusters, NAT Gate
 
 The takeaway: Yolo's prompt tuning made it scrappy and resourceful even without direct billing access. My Kiro setup with the right MCP servers configured produced a more comprehensive result, but required that configuration to be in place first.
 
+### Prompt 4: "Can you tell me what services I have configured in my flowops EKS cluster?"
+
+![Side-by-side comparison of EKS service queries in Yolo CLI and Kiro CLI](/assets/yolo/eks.png)
+
+Both tools correctly identified the cluster and listed the services. Yolo ran `aws eks update-kubeconfig` to set context, then `kubectl get services --all-namespaces -o wide` to pull everything. It organized the output into Application Services (flowops namespace) and System Services, presenting a clean table with Service, Type, Cluster IP, Port, Age, and Purpose for each. It also noted that all application services are internal (ClusterIP) and offered to check for ingress resources or load balancers.
+
+My Kiro CLI inferred I meant `flowops-dev-eks` from the prompt, used a dedicated `list_k8s_resources` MCP tool, and returned 9 services across three namespaces: flowops (6 application services, all Helm-managed), kube-system (2 infrastructure services), and default (the Kubernetes API server). It also provided deployment timeline context, noting the 6 app services were deployed in two waves and offered to dig deeper into deployments, pods, or endpoints.
+
+Both tools reached for `kubectl` under the hood. The difference was in presentation: Yolo gave a structured table with inferred purpose descriptions for each service, while Kiro gave a namespace-grouped view with deployment chronology. Both useful, just different lenses on the same data.
+
 ## Analysis
 
 ### Where Yolo Shines
