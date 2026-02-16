@@ -1,5 +1,5 @@
 ---
-title: "Yolo CLI vs. My Bespoke Kiro CLI Setup with AWS MCP Tools"
+title: "Yolo CLI vs. My Bespoke Kiro CLI: Semantic AWS Resource Management"
 publishDate: 2026-02-15
 img:
 img_alt:
@@ -7,17 +7,16 @@ category: technology
 description: |
   A hands-on comparison of the Yolo CLI and my local Kiro-based setup with AWS MCP server tools, using identical prompts to query AWS resources side by side.
 tags:
-  - AI Development
   - AWS Tooling
-  - CLI Tools
-  - MCP
+  - CLI
+  - Semantic Devops
 ---
 
 import ImageCarousel from '../../components/ImageCarousel.astro';
 
 ## Background
 
-I have been running a bespoke local CLI setup built on top of Kiro with AWS MCP server tools for a while now. It lets me query and manage my AWS resources conversationally, leveraging the model of my choice and a curated set of MCP servers. When a colleague I respect pointed me toward [Yolo CLI](https://yolo.dev), a new entrant in the semantic cloud management space, I figured the only fair way to evaluate it was to run identical prompts through both tools and compare the outputs side by side.
+I have been running a bespoke local CLI setup built on top of [Kiro](https://kiro.dev/) with AWS [MCP](https://kiro.dev/docs/mcp/) server tools for a while now. It lets me query and manage my AWS resources conversationally, leveraging the model of my choice and a curated set of MCP servers. When a colleague I respect pointed me toward [Yolo CLI](https://runyolo.dev/), a new entrant in the semantic cloud management space, I figured the only fair way to evaluate it was to run identical prompts through both tools and compare the outputs side by side.
 
 ## Getting Started with Yolo
 
@@ -102,8 +101,8 @@ I actually preferred my bespoke setup's structure for this prompt since it cover
 ### Where My Bespoke Setup Has the Edge
 
 - Model control. I can always use the latest and most capable model available. With Yolo, you are on whatever model they have selected.
-- Customizability. I can add, remove, or swap MCP servers and tailor the system prompt to my exact workflow.
-- Extensibility. If I set up a dedicated custom sub-agent for AWS resource management with a tuned system prompt, the outputs would be nearly identical to Yolo's. The gap is largely a matter of prompt engineering effort, not capability.
+- Customizability. I can add, remove, or swap [MCP servers](https://kiro.dev/docs/cli/mcp/configuration/) and tailor the system prompt to my exact workflow.
+- Extensibility. If I set up a dedicated [custom sub-agent](https://kiro.dev/docs/cli/custom-agents/) for AWS resource management with a tuned system prompt, the outputs would be nearly identical to Yolo's. The gap is largely a matter of prompt engineering effort, not capability.
 
 ### The Underlying Tooling is the Same
 
@@ -111,9 +110,9 @@ It was clear from observing both tools that they rely on very similar underlying
 
 ## The Bigger Picture: Powers and Skills
 
-This comparison reinforced something I have been thinking about for a while. Kiro "Powers," or more broadly "skills," are the ideal way to package these kinds of sub-agents with tailored prompts and tools. That is essentially what Yolo is: a packaged skill with a polished prompt layer on top of ubiquitous AWS tooling.
+This comparison reinforced something I have been thinking about for a while. Kiro "[Powers](https://kiro.dev/docs/powers/)," or more broadly "[skills](https://kiro.dev/docs/skills/)," are the ideal way to package these kinds of sub-agents with tailored prompts and tools. That is essentially what Yolo is: a packaged skill with a polished prompt layer on top of ubiquitous AWS tooling.
 
-If I invested the time to build a dedicated AWS management Power with a refined system prompt and the right MCP servers pre-configured, the experience would converge with Yolo's. But that takes effort, and effort is the trade-off. Installing a CLI tool will always be faster than building a bespoke setup, even if the ceiling of the bespoke setup is higher.
+If I invested the time to build a dedicated AWS management Power with a refined system prompt and the right MCP servers pre-configured, the experience would converge with Yolo's. But that takes effort, and effort is the trade-off. Installing a CLI tool will always be faster than building a bespoke setup, even if the ceiling of the bespoke setup is higher. Kiro's docs even have an [example of an AWS infrastructure custom agent](https://kiro.dev/docs/cli/custom-agents/examples) that is a solid starting point.
 
 ## Where Yolo Could Differentiate
 
