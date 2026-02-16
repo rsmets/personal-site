@@ -81,6 +81,20 @@ My Kiro CLI inferred I meant `flowops-dev-eks` from the prompt, used a dedicated
 
 Both tools reached for `kubectl` under the hood. The difference was in presentation: Yolo gave a structured table with inferred purpose descriptions for each service, while Kiro gave a namespace-grouped view with deployment chronology. Both useful, just different lenses on the same data.
 
+### Prompt 5: "Can you give me a cost estimate by service within the cluster?"
+
+I opted to share the outputs as separate images since there was too much content to reasonably split inline. Both tools appeared to use raw `kubectl` commands to inspect the EKS resources and then calculate cost allocations.
+
+![Yolo CLI EKS cost estimate by service](/assets/yolo/eks-yolo-cost.png)
+
+Yolo broke the response into multiple sections. First, a Service Resource Allocation table showing Replicas, CPU Request, Memory Request, Node, and percentage of node CPU/Memory for each service. Then an Estimated Monthly Cost per Service table allocating costs by CPU and Memory share with a blended share percentage. It followed that with an EKS Shared Infrastructure Costs table (Control Plane at ~$73, ALB at ~$16.20, EBS Storage at ~$11.54, Data Transfer as variable) and a final Total Estimated Cost per Service table combining Compute, EKS Share, ALB Share, and Storage into a per-service monthly total. Grand total: ~$225.21/month. It even included Key Insights noting that `agent-invoke` is the most resource-intensive (41% of compute), the cluster is under-utilized (only 30% CPU, 8% memory requested), and suggested consolidating to 1 node to save ~$61/month.
+
+![Kiro CLI EKS cost estimate by service](/assets/yolo/eks-kiro-cost.png)
+
+My Kiro CLI structured its response into three sections as well: Compute Resource Requests per Service (with CPU Request, Memory Request, CPU Limit, and Memory Limit), a Monthly Cost Estimate for us-west-2 (EKS cluster control plane, EC2 nodes, ALB, ACM certificate, ECR, totaling ~$200-205/mo), and a Cost Breakdown by Service proportional to resource requests. It also caught that the 3rd EC2 instance is in a different VPC and not part of this cluster, noting that is an additional ~$55/mo separately. It recommended enabling Cost Explorer for precise tracking.
+
+The Yolo output has consistently been better formatted. I suspect I could improve my local setup's formatting through more explicit prompting, but the difference was noticeable throughout this comparison.
+
 ## Analysis
 
 ### Where Yolo Shines
