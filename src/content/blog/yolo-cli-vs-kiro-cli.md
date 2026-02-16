@@ -39,7 +39,7 @@ My Kiro CLI returned a more minimal table with Instance ID, Type, and State. It 
 
 Because Yolo had already surfaced AZ information unprompted, my follow-up to Yolo was simply: _"Can you give me more detailed info about these instances?"_ For my Kiro setup, I had to be more specific: _"Can you give me more info about these instances such as the AZ they are in?"_ Yolo's proactive verbosity in the first prompt saved me a round trip here.
 
-![Side-by-side comparison of detailed EC2 instance information from Yolo CLI and Kiro CLI](/assets/yolo-vs-kiro-ec2-details.png)
+![Side-by-side comparison of detailed EC2 instance information from Yolo CLI and Kiro CLI](/assets/yolo/ec2-details.png)
 
 Yolo returned a dense table covering Instance ID, Type, State, VPC, Subnet, Security Group, AMI, Root Volume, EBS Volume size, and Launch Time. It then went further with additional sections on Architecture and Virtualization (x86_64, HVM, Xen hypervisor, UEFI boot mode), Storage (EBS volumes, termination behavior), Networking (ENA, source/destination check, IMDSv2), IAM Roles, and EKS Tags. It was thorough.
 
@@ -49,9 +49,27 @@ The difference in approach is interesting. Yolo dumps everything it can find upf
 
 ### Prompt 3: "Can you give me cost information for all my resources?"
 
-This is where things got interesting. Yolo's output was truncated in the terminal due to length, but the full output was far more detailed. It provided a comprehensive cost breakdown even while acknowledging it did not have every specialized tool available. It was clear that Yolo's prompts are tuned to extract maximum value from the AWS CLI and related commands.
+This is where things got the most interesting.
 
-My Kiro setup, on the other hand, initially fell short here because I had not configured the internal Cost Explorer MCP server in my CLI environment. I only had it wired up in the IDE. When I ran the same prompt through my IDE instead, it executed a series of AWS CLI commands and returned a solid cost summary, though it took noticeably longer than Yolo did.
+![Side-by-side comparison of cost queries in Yolo CLI and Kiro CLI](/assets/yolo/cost-side-by-side.png)
+
+Yolo acknowledged upfront that it does not have access to AWS Cost Explorer or billing data directly, but then proceeded to estimate costs based on the resources it could see. It broke down EC2 instances (3x c6a.large at ~$61.32/month each, ~$165.30 subtotal), EBS Volumes (6 volumes totaling 252 GB of gp3 at ~$20.16/month), and flagged additional costs not shown like EKS Control Plane ($0.10/hour x 2 clusters = ~$146/month), Data Transfer, KMS, and NAT Gateway. It arrived at an estimated total of ~$204/month for visible resources and ~$350-400/month with EKS included. All from a single prompt.
+
+The Yolo output was truncated in the terminal, so here is the full output:
+
+![Full Yolo CLI cost output](/assets/yolo/cost-yolo.png)
+
+My Kiro CLI, on the other hand, tried to call AWS Cost Explorer directly via the `call_aws` MCP tool and got back that Cost Explorer was not enabled on the account. It then offered helpful guidance on how to enable it and provided a rough estimate for just the EC2 compute (~$0.0765/hr each, ~$166/month for all three). Useful, but far less comprehensive than Yolo's resource-by-resource breakdown.
+
+I then realized I had the Cost Explorer MCP server configured in my IDE but not in my CLI. When I ran the same prompt through the IDE, it went on a thorough inventory of the entire account across multiple regions and services:
+
+![Kiro IDE cost breakdown part 1 showing EC2, EKS, NAT Gateways, Load Balancers, OpenSearch, and Kendra](/assets/yolo/cost-ide-1.png)
+
+![Kiro IDE cost breakdown part 2 showing QuickSight, Athena, Lambda, S3, CloudTrail, and total estimate](/assets/yolo/cost-ide-2.png)
+
+The IDE's output was remarkably detailed. It covered EC2, EKS clusters, NAT Gateways (flagging 5 in us-west-2 as a "sneaky cost driver"), Load Balancers, OpenSearch, Kendra (calling out the ~$810/month GenAI Enterprise index as "the elephant in the room"), QuickSight, Athena, Lambda (~35 functions in us-west-2, 4 in us-east-1), S3 (2.18 GB across 20 buckets), and CloudTrail. It arrived at an estimated monthly total of ~$1,400 to $1,500 and even provided a prioritized breakdown of where the money was going. It took noticeably longer than Yolo did, but the depth was impressive once it had the right tools available.
+
+The takeaway: Yolo's prompt tuning made it scrappy and resourceful even without direct billing access. My Kiro setup with the right MCP servers configured produced a more comprehensive result, but required that configuration to be in place first.
 
 ## Analysis
 
