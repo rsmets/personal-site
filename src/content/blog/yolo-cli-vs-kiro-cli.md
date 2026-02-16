@@ -27,7 +27,13 @@ I ran a series of progressively detailed prompts through both tools. Here is how
 
 ### Prompt 1: "How many EC2 instances do I have running right now?"
 
-Both tools returned the correct count. The notable difference was that Yolo proactively included additional context, such as the Availability Zone for each instance, without being asked. My Kiro setup returned a more minimal response, answering exactly what was asked and nothing more.
+![Side-by-side comparison of Yolo CLI and Kiro CLI responding to an EC2 instance count query](/assets/yolo/ec2.png)
+
+Both tools correctly identified 3 running EC2 instances in us-west-2, all c6a.large. The notable difference was in the default verbosity of the response.
+
+Yolo proactively surfaced a rich table with Instance ID, Type, Cluster, AZ, Private IP, and Launch Time without being asked. It also identified them as EKS-managed nodes on a general-purpose node pool. That is a lot of useful context for a single prompt.
+
+My Kiro CLI returned a more minimal table with Instance ID, Type, and State. It noted they were all c6a.large and offered to check other regions, but did not volunteer AZ or cluster information unprompted.
 
 ### Prompt 2: Requesting More Detail
 
