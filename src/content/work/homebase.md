@@ -1,9 +1,9 @@
 ---
-title: HomeBase, An Inbox That Thinks For You
+title: HomeBase, A Generative UI Inbox
 startDate: 2025-10-04T00:00:00Z
 endDate: 2026-06-01T00:00:00Z
-img: /assets/homebase.svg
-img_alt: HomeBase app logo
+img: /assets/homebase.png
+img_alt: HomeBase Travel Command view rendering flights and stays as a generative-UI dashboard over email
 description: |
   An AI-native email client that started as iMessage-for-email and became a generative-UI dashboard that summarizes, structures, and reasons over the noisy 95% of your inbox.
 tags:
@@ -14,7 +14,7 @@ tags:
   - Startup
 ---
 
-HomeBase was an attempt to fix the inbox, the single most neglected and most valuable surface in your digital life. It began as an iMessage-style email client and ended as something stranger and, I think, more interesting: a generative-UI dashboard that reads the noisy, non-personal 95% of your mail and renders it back to you as charts, timelines, and structured views you never had to build. This sits at the same intersection as my [agentic AI tooling](/blog/agentic-ai-tooling) writing and the [trust-layer thesis](/blog/trust-layer-agent-economy) I keep circling back to: the inbox is where digital identity actually lives.
+HomeBase was an attempt to fix the inbox, the single most neglected and most valuable surface in your digital life. It began as an iMessage-style email client and ended as something stranger and, I think, more interesting: a generative-UI dashboard that reads the noisy, non-personal 95% of your mail and renders it back to you as charts, timelines, and structured views you never had to build. This sits at the same intersection as my [agentic AI tooling](/blog/agentic-ai-tooling) writing and the [trust-layer thesis](/blog/trust-layer-agent-economy) I keep circling back to: the inbox is wealth of digital identity context.
 
 As of June 2026 the project is shelved while I focus on other initiatives. The codebase and infrastructure remain, and I'm still happy to add curious individuals to the allow list, so if any of the below resonates, reach out.
 
@@ -65,7 +65,7 @@ Asking a user for `gmail.readonly` is asking for the keys to their entire identi
 
 And here's the tradeoff that defines the entire design space: **the moment you encrypt the body, you lose the ability to search it.** Postgres can't run full-text or trigram search over ciphertext. So we rebuilt search on top of encryption from two directions, each with its own compromise:
 
-- **Lexical search** came back as a *blind index*: before encryption, we derive per-field arrays of HMAC-SHA256 tokens (words plus character trigrams, normalized and accent-folded), each scoped to a per-user namespace to blunt cross-user correlation, and index those token arrays with GIN. We can match a query's tokens against a row's tokens without ever storing readable text. The cost is real: deterministic tokens leak structure to frequency analysis, and you give up the principled relevance ranking that native FTS gives you for free.
+- **Lexical search** came back as a _blind index_: before encryption, we derive per-field arrays of HMAC-SHA256 tokens (words plus character trigrams, normalized and accent-folded), each scoped to a per-user namespace to blunt cross-user correlation, and index those token arrays with GIN. We can match a query's tokens against a row's tokens without ever storing readable text. The cost is real: deterministic tokens leak structure to frequency analysis, and you give up the principled relevance ranking that native FTS gives you for free.
 - **Semantic search** is the harder admission. To embed an email, you have to read it in the clear at ingest, and the resulting vectors are themselves a lossy-but-recoverable projection of the content (embeddings can be partially inverted). So the very capability that makes the inbox _smart_, semantic recall, is the one capability you cannot fully blind yourself to. We encrypted the bodies, but we still held the keys and still computed the embeddings.
 
 That gap, between "we masked the PII" and "we genuinely cannot read your mail", is unbridgeable as long as the intelligence runs on our infrastructure. Honest privacy here means admitting that semantic understanding and true zero-knowledge are, with today's tooling, in tension.
