@@ -75,4 +75,4 @@ A modest base of avid travelers booking multiple legs per trip pushes lifetime v
 
 ## Where It Stands
 
-TRVLR is live at [trvlr.live](https://trvlr.live), with the social journaling experience deployed and the Mastra-powered engine maturing alongside the affiliate partnerships that make the free model work. It's an ongoing build, and frankly the one I'm most excited about, both for what it does today and for where it points: a privacy-preserving inference layer so the personalization I care about never has to mean handing plaintext PII to a service operator or model vendor. _But that's a story for another post._
+TRVLR shipped a working prototype at [trvlr.live](https://trvlr.live), with the social journaling experience deployed and the Mastra-powered agent engine wired up alongside the affiliate partnerships that make the free model viable. Active development has since been put on hold. I may pick it back up ahead of summer 2026, when I'll likely be traveling again and will want exactly this kind of tool in my pocket. Until then, the landing page and codebase remain as a snapshot of what felt like a genuinely promising vertical agent play.
