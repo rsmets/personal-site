@@ -72,4 +72,4 @@ So we have a genuine chicken-and-egg: **high-value autonomous commerce won't hap
 
 The plumbing question, _how do agents pay?_, is solved. The question that decides whether any of it amounts to a real economy is older than blockchains, older than the internet: _when a stranger offers to transact, how do you know they're worth trusting?_ We just have to answer it for counterparties that spin up in milliseconds, settle irreversibly, and lie about half the time.
 
-This is the layer my years of building identity systems have uniquely prepared me to tackle. Whether the space is viable enough to build a business in yet—that is the harder question.
+This is the layer my years of building identity systems have uniquely prepared me to tackle. Whether the space is viable enough to build a business in yet remains an open question.
