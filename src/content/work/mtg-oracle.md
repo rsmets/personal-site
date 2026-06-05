@@ -4,17 +4,24 @@ startDate: 2026-05-08T00:00:00Z
 img: /assets/mtg-oracle/cover.png
 img_alt: MTG Oracle deck-building agent interface
 description: |
-  A Magic: The Gathering deck-building AI agent for the Standard format, built as a state-of-the-art RAG system with a multi-model agent loop, treating prompts as versioned software and quality as something you measure rather than assume.
+  A Magic: The Gathering deck-building AI agent for the Standard format, built as a state-of-the-art RAG system with a multi-model agent loop. A perfectly bounded data landscape for pressure-testing prompt versioning, robust evals, and supervised fine-tuning for classification.
 tags:
   - Agentic AI
   - RAG
   - LLM Evals
+  - Fine-Tuning
   - AWS Bedrock
 ---
 
 [MTG Oracle](https://github.com/rsmets/mtg-oracle) is a Magic: The Gathering deck-building agent for the Standard format. On the surface it takes a plain-language brief, like "an aggressive red-white deck that can beat the current control meta," and returns a legal, tournament-aware 60-card deck with its reasoning shown. Underneath, it was my attempt to build a genuinely state-of-the-art retrieval-augmented agent the way I would want a production system built: prompts treated as versioned software, and quality treated as something you measure rather than assume.
 
 It is [live on Railway](https://web-production-26b47.up.railway.app) with a React SPA front end, and the whole core runs on AWS Bedrock.
+
+### Why Magic, of All Things
+
+Magic: The Gathering has been a data scientist's playground since long before "data science" was a job title. It is a thirty-year-old competitive game with more than 27,000 unique cards, a rules engine complex enough to be formally proven Turing-complete, and a professional tournament circuit that generates a continuous stream of structured results. Serious players have always treated deck-building as an optimization problem: win-rate spreadsheets, mana-curve math, metagame share, expected-value calculations on every mulligan. The community publishes thousands of tournament decklists with placements attached. There is, in other words, an enormous corpus of labeled, outcome-tagged, expert-generated data sitting in the open.
+
+The aha moment for me was realizing that Magic is a **perfectly bounded data landscape** for testing cutting-edge agentic RAG. That phrase is doing a lot of work, so let me unpack it. The card pool is large but finite and authoritatively defined; Scryfall publishes every card as clean structured data. Legality is a closed, deterministic rule set, so correctness is checkable in code rather than a matter of opinion. The Standard format rotates, which means the "right" answer genuinely shifts over time, so a model leaning on stale training data is provably wrong and retrieval earns its keep. And ground truth is obtainable: decks can actually be played out to a win or a loss. You rarely get all four of those properties at once. Most real-world RAG problems are unbounded, fuzzy, and impossible to score objectively. Magic gives you a hard, knowable correctness signal and a moving target in the same domain, which makes it close to an ideal proving ground for the techniques I actually wanted to pressure-test.
 
 ### The RAG Core
 
@@ -41,6 +48,18 @@ So prompts are versioned, monotonically, `v1` through `v17` and counting. Old ve
 Evals are the backbone, not an afterthought. Gold sets live as JSONL in the repo, and every harness run writes timestamped artifacts I can diff later. The headline harness is a **dual-judge rubric**: Sonnet and Opus independently score decks across a five-dimension rubric, run as an A/B across twenty fixed briefs so I can tell whether a change to the prompt or the retrieval actually helped.
 
 But I was uncomfortable stopping at LLM-as-judge, because a rubric score is an opinion about a deck, not evidence the deck wins games. So the eval ladder climbs toward ground truth. A **tournament-proximity scorer** measures how close a generated deck sits to real tournament lists on card overlap, mana base, and core-card presence. And the top rung plugs into **Forge**, an open-source rules-complete MTG engine, to run fifty headless simulated matches per deck for actual win-loss-draw records. That last one is a slow nightly job, not a dev-loop check, but it closes the gap between "a judge model liked this deck" and "this deck actually performs."
+
+### The Right-Sized Target for Fine-Tuning
+
+That bounded-data property paid off in an unexpected place. The brief classifier, the Haiku 4.5 router that sorts each request into `open`, `archetype`, `budget`, `mechanic`, or `contrarian`, turned out to be the perfect candidate for supervised fine-tuning. Closed label set, a gold set I could generate for almost nothing, and a task narrow enough that a small model could plausibly learn it. So I ran a distillation pilot: teach a fine-tuned **Amazon Nova Micro** to imitate the Haiku teacher, end to end through Bedrock model customization, entirely in TypeScript with no Python.
+
+The results were a genuinely instructive surprise. The distilled student matched the teacher on **98.5%** of a held-out set (194 of 197), ran about **1.8× faster** at the median, and cost roughly **28× less per call**. But the more valuable lessons were the ones the documentation does not lead with:
+
+- **The misses were signal, not noise.** All three divergences fell on the genuinely ambiguous category borders, the briefs that name both a color identity and a mechanic, for instance. Distillation faithfully inherits the teacher's decision boundaries, including the blurry ones. The lesson: to push past 98–99% you fix the category *definitions*, not the training-data volume. The ceiling was conceptual, not quantitative.
+- **Validation loss rose after the first epoch.** The model had essentially learned the teacher's decision function within one pass; epochs two and three just fit noise. For a small closed-label distillation, one or two epochs would likely have beaten three at lower cost.
+- **The economics only work at the right scale.** A 28× per-call multiple sounds decisive until you account for the fixed monthly cost of keeping a custom model deployed. The break-even sat around 5,000 calls a month; below that, the off-the-shelf model is cheaper all-in. Distillation to a small model pays off only when the call is high-volume, the task is narrow, and latency matters, all three, not just cost.
+
+The counter-experiment was just as informative: fine-tuning a small model for the *deck builder* would have been a mistake. When I tested a base Nova Pro as the builder, it produced 174-card decks, ran twelve copies of cards capped at four, and hallucinated card names outright. That is not a style gap a fine-tune can close cheaply; it is a rules-competence gap that would demand teaching deck construction from scratch. The classifier was the right-sized target precisely because the task was bounded. The builder was the wrong one for exactly the same reason in reverse. Knowing which is which is most of the skill.
 
 ### Why It Matters
 
