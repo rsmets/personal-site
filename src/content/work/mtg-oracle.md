@@ -31,6 +31,14 @@ I ingest Scryfall's full `oracle_cards` set, filter to Standard-legal, and store
 
 A second retrieval index holds roughly a thousand community-popular decks ingested across six sources (Archidekt, Moxfield, mtgdecks, mtggoldfish, mtgtop8, and MTGO), deduplicated by mainboard hash. When you ask for a deck, the agent consults real, recent, tournament-proven exemplars before it builds, and cites them.
 
+### Encoding Expert Judgment, Not Just Data
+
+Card text and decklists tell you *what* exists and *what* is popular. They do not tell you *how a pro thinks about building a deck*, and that judgment is the part that separates a legal 60-card pile from a coherent deck. So I built a third knowledge layer: a distilled technical FAQ of professional deck-building doctrine that lives inside the agent's system prompt.
+
+It started as a seven-agent parallel research pass, each agent targeting one domain, closers and win conditions, mana curve, card roles, meta-positioning, anti-patterns, sideboarding, and consistency, and each writing a sourced report with every claim traced back to a primary source. I synthesized those into roughly fifty reasoning-shaped rules drawn from the named canon of the game: Mike Flores's "Who's the Beatdown?" and "Philosophy of Fire," Reid Duke's "Level One" series, Gavin Verhey's "every deck needs a one-sentence mission statement." Seven independent research threads converged on the same underlying principle, that a deck has a *plan* and every card slot must earn its place by advancing that plan, which became the spine of the build prompt.
+
+This is the deck-building guide the agent reasons with, and it matters as much as the RAG. It is what lets the system reject a card that is locally powerful but role-wrong, insist on an honest win condition, and treat a sideboard as the output of matchup planning rather than fifteen loose slots. Encoding hard-won expert heuristics as auditable, sourced rules is, I think, an underrated form of RAG: you are retrieving *judgment*, not just facts.
+
 ### A Multi-Model Agent Loop
 
 The agent runs a Bedrock Converse tool-use loop with a deliberately tiered model strategy, because not every step deserves a frontier model. **Haiku 4.5** acts as a cheap, fast router: it classifies each brief into `open`, `archetype`, `budget`, `mechanic`, or `contrarian`, which gates whether community exemplars help or hurt (my evals showed they actively hurt on open-ended briefs, so the gate turns them off there). **Sonnet 4.6** does the analytical heavy lifting, deck summarization and judging. **Opus 4.7** is reserved as an explicit alias for the highest-stakes reasoning. The cards, validator, and exemplar tools are all exposed over an **MCP server**, so the same capabilities back the CLI, the web app, and any MCP client.
