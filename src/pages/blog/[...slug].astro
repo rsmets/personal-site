@@ -42,8 +42,10 @@ const hasCitations = rawContent.includes('citation:');
 							<div class="tags">
 								{entry.data.tags.map((t: string) => <Pill>{t}</Pill>)}
 							</div>
-							<p class="description">{entry.data.description}</p>
-                            <p class="date">{new Date(entry.data.publishDate).toISOString().split('T')[0]}</p>
+							<div class="details-row">
+								<p class="description">{entry.data.description}</p>
+								<p class="date">{new Date(entry.data.publishDate).toISOString().split('T')[0]}</p>
+							</div>
 						</div>
 					</Hero>
 				</div>
@@ -80,14 +82,35 @@ const hasCitations = rawContent.includes('citation:');
 		align-items: center;
 	}
 
+	/* Description + date share a row on desktop; date must never wrap. */
+	.details-row {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		align-items: center;
+	}
+
 	.tags {
 		display: flex;
+		flex-wrap: wrap;
 		gap: 0.5rem;
+		justify-content: center;
 	}
 
 	.description {
 		font-size: var(--text-lg);
 		max-width: 54ch;
+		text-align: center;
+		margin: 0;
+	}
+
+	.date {
+		font-size: var(--text-lg);
+		color: var(--gray-300);
+		margin: 0;
+		/* ISO dates (2026-06-05) must stay on one line even in tight flex layouts */
+		white-space: nowrap;
+		flex-shrink: 0;
 	}
 
 	.content {
@@ -207,7 +230,29 @@ const hasCitations = rawContent.includes('citation:');
 
 		.details {
 			flex-direction: row;
+			align-items: flex-start;
 			gap: 2.5rem;
+		}
+
+		.tags {
+			justify-content: flex-start;
+		}
+
+		.details-row {
+			flex: 1;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: baseline;
+			gap: 2rem;
+		}
+
+		.description {
+			flex: 1;
+			text-align: left;
+		}
+
+		.date {
+			text-align: right;
 		}
 
 		.content :global(blockquote) {
