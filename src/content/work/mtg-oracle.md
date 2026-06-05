@@ -13,9 +13,9 @@ tags:
   - AWS Bedrock
 ---
 
-[MTG Oracle](https://github.com/rsmets/mtg-oracle) is a Magic: The Gathering deck-building agent for the Standard format. On the surface it takes a plain-language brief, like "an aggressive red-white deck that can beat the current control meta," and returns a legal, tournament-aware 60-card deck with its reasoning shown. Underneath, it was my attempt to build a genuinely state-of-the-art retrieval-augmented agent the way I would want a production system built: prompts treated as versioned software, and quality treated as something you measure rather than assume.
+[MTG Oracle](https://github.com/rsmets/mtg-oracle) is a Magic: The Gathering deck-building agent and card retrieval stack. On the surface it takes a plain-language brief, like "an aggressive red-white deck that can beat the current control meta," and returns a legal, tournament-aware 60-card deck with its reasoning shown. Underneath, it was my attempt to build a genuinely state-of-the-art retrieval-augmented agent the way I would want a production system built: prompts treated as versioned software, and quality treated as something you measure rather than assume.
 
-It is [live on Railway](https://web-production-26b47.up.railway.app) with a React SPA front end, and the whole core runs on AWS Bedrock.
+It is [live](https://themtgoracle.com), deployed on Railway, with a React SPA front end, and the all the inference runs on AWS Bedrock.
 
 ### Why Magic, of All Things
 
@@ -55,11 +55,11 @@ That bounded-data property paid off in an unexpected place. The brief classifier
 
 The results were a genuinely instructive surprise. The distilled student matched the teacher on **98.5%** of a held-out set (194 of 197), ran about **1.8× faster** at the median, and cost roughly **28× less per call**. But the more valuable lessons were the ones the documentation does not lead with:
 
-- **The misses were signal, not noise.** All three divergences fell on the genuinely ambiguous category borders, the briefs that name both a color identity and a mechanic, for instance. Distillation faithfully inherits the teacher's decision boundaries, including the blurry ones. The lesson: to push past 98–99% you fix the category *definitions*, not the training-data volume. The ceiling was conceptual, not quantitative.
+- **The misses were signal, not noise.** All three divergences fell on the genuinely ambiguous category borders, the briefs that name both a color identity and a mechanic, for instance. Distillation faithfully inherits the teacher's decision boundaries, including the blurry ones. The lesson: to push past 98–99% you fix the category _definitions_, not the training-data volume. The ceiling was conceptual, not quantitative.
 - **Validation loss rose after the first epoch.** The model had essentially learned the teacher's decision function within one pass; epochs two and three just fit noise. For a small closed-label distillation, one or two epochs would likely have beaten three at lower cost.
 - **The economics only work at the right scale.** A 28× per-call multiple sounds decisive until you account for the fixed monthly cost of keeping a custom model deployed. The break-even sat around 5,000 calls a month; below that, the off-the-shelf model is cheaper all-in. Distillation to a small model pays off only when the call is high-volume, the task is narrow, and latency matters, all three, not just cost.
 
-The counter-experiment was just as informative: fine-tuning a small model for the *deck builder* would have been a mistake. When I tested a base Nova Pro as the builder, it produced 174-card decks, ran twelve copies of cards capped at four, and hallucinated card names outright. That is not a style gap a fine-tune can close cheaply; it is a rules-competence gap that would demand teaching deck construction from scratch. The classifier was the right-sized target precisely because the task was bounded. The builder was the wrong one for exactly the same reason in reverse. Knowing which is which is most of the skill.
+The counter-experiment was just as informative: fine-tuning a small model for the _deck builder_ would have been a mistake. When I tested a base Nova Pro as the builder, it produced 174-card decks, ran twelve copies of cards capped at four, and hallucinated card names outright. That is not a style gap a fine-tune can close cheaply; it is a rules-competence gap that would demand teaching deck construction from scratch. The classifier was the right-sized target precisely because the task was bounded. The builder was the wrong one for exactly the same reason in reverse. Knowing which is which is most of the skill.
 
 ### Why It Matters
 
