@@ -35,7 +35,7 @@ claude plugin install aws-dev-toolkit@claude-plugins-official
 
 ## The Part I Did Not Expect
 
-It turns out the plugin beat AWS product teams to the punch. It ultimately heavily influenced two Amazon products that launched this month: [AWS Startup Advisor](https://aws.amazon.com/aws-startups/advisor/) and the [AWS Startups Migrate](https://aws.amazon.com/startups/migrate/) experience. Both are motions the plugin directly supports, now in a much easier to maintain package.
+It turns out the plugin beat AWS product teams to the punch. It ultimately heavily influenced two Amazon products that launched this month: [AWS Startup Advisor](https://aws.amazon.com/aws-startups/advisor/) and the [AWS Startups Migrate](https://aws.amazon.com/startups/migrate/) experience. Both are motions the plugin already supported, now shipped in a far more maintainable package.
 
 Startup Advisor lets founders scaffold their architecture and deploy local code to AWS right from their IDE, with guidance tailored to what they are building. The Migrate experience takes a team from another cloud, GCP or an OpenAI or Gemini stack, and generates a personalized migration plan: service mapping, cost comparisons, Terraform templates, architecture diagrams, and step-by-step runbooks, with the option to execute it via an AI agent. Both of them ship the same core conviction the plugin was built on, that an organization's expertise should be packaged so an agent can act on it directly, and both meet developers inside Claude Code where the work actually happens.
 
