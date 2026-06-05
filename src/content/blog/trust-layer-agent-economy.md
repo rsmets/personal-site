@@ -22,13 +22,15 @@ So we can now make an agent pay another agent for an API call without a human in
 
 That sounds small. It is the entire game.
 
-## A Decade of Watching Identity Marketplaces Die
+## Years of Watching Identity Marketplaces Die
 
 I have a particular allergy to this problem because I have watched its cousin fail repeatedly. Years ago, during my graduate work in information security, I wrote a [white paper on decentralized access control](/work/decentralized-access-control), arguing that users should own their identities outright rather than renting trust from whoever happens to operate the service. The motivating realization was uncomfortable: while running the platform for an access control startup, I could impersonate any user in our system, grant access, and quietly rewrite their audit trail. The whole edifice rested on trusting the operator.
 
 The decentralized-identity world's answer was Verifiable Credentials and DIDs, cryptographically signed claims that you carry and present yourself. Beautiful primitives. And for human identity, they mostly died on the vine. Not because the cryptography was wrong, but because of **cold-start**. Nobody issues credentials before anybody verifies them, verifiers won't pay for coverage that doesn't exist yet, and everyone stalls in a standoff waiting for the other side to move first.
 
 I bring this up because the agent economy quietly breaks that standoff, and most people haven't noticed why.
+
+_Side note: I went on lead an identity startup as CTO that was built on the DIDs and VCs specs before having to toss them for a traditional data vendor architecture with an API interface (without the cryptographic guarantees that drew us all in)._
 
 ## The Chain Is a Free, Tamper-Evident Behavioral Record
 
