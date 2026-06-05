@@ -2,7 +2,7 @@
 title: MTG Oracle
 startDate: 2026-05-08T00:00:00Z
 img: /assets/mtg-oracle/cover.png
-img_alt: MTG Oracle deck-building agent interface
+img_alt: MTG Oracle logo and tagline — the MTG deck builder that plays the cards
 description: |
   A Magic: The Gathering deck-building AI agent for the Standard format, built as a state-of-the-art RAG system with a multi-model agent loop. A perfectly bounded data landscape for pressure-testing prompt versioning, robust evals, and supervised fine-tuning for classification.
 tags:
