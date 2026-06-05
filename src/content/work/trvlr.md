@@ -1,8 +1,9 @@
 ---
 title: TRVLR, An Agentic Travel Companion
 startDate: 2025-07-01T00:00:00Z
-img: /assets/trvlr-og.svg
-img_alt: TRVLR logo, your AI travel assistant
+endDate: 2025-10-01T00:00:00Z
+img: /assets/trvlr-landing.png
+img_alt: TRVLR landing page showing the AI-powered travel agent hero
 description: |
   An AI travel agent that plans and books trips through natural language, made free to users by routing the economics through affiliate booking partners.
 tags:
@@ -12,7 +13,7 @@ tags:
   - Startup
 ---
 
-[TRVLR](https://trvlr.live) is an agentic travel companion: it plans flights, stays, and activities through natural language, remembers who you are across trips, and (the part everyone else punts on) aims to actually complete the booking rather than handing you an itinerary to go re-enter somewhere else. It is the most product-shaped thing I've built, sitting squarely at the intersection of the [agentic tooling](/blog/agentic-ai-tooling) I keep writing about and a business model deliberately designed so I can give it away for free.
+[TRVLR](https://trvlr.live) is an agentic travel companion: it plans flights, stays, and activities through natural language, remembers who you are across trips, and (the part everyone else punts on) aims to actually complete the booking rather than handing you an itinerary to go re-enter somewhere else. This project sits squarely at the intersection of the [agentic tooling](/blog/agentic-ai-tooling) I keep writing about and a business model deliberately designed so I can give it away for free.
 
 ## Inception
 
