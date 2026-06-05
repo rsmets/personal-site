@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="100" cy="100" r="2" fill="#3b82f6" opacity="0.3"/>
+  <circle cx="1100" cy="530" r="3" fill="#8b5cf6" opacity="0.4"/>
+  <circle cx="200" cy="500" r="1.5" fill="#06b6d4" opacity="0.5"/>
+  <circle cx="1000" cy="150" r="2.5" fill="#10b981" opacity="0.3"/>
+
+  <!-- Main logo/icon -->
+  <g transform="translate(150, 200)">
+    <!-- Map pin icon -->
+    <path fill="url(#accentGrad)" d="M60 30c0 18-24 36-24 36s-24-18-24-36a24 24 0 0 1 48 0Z"/>
+    <circle cx="36" cy="30" r="9" fill="white"/>
+    <circle cx="36" cy="30" r="4.5" fill="#1e293b"/>
+
+    <!-- Secondary pins -->
+    <g opacity="0.6">
+      <path fill="#06b6d4" d="M120 50c0 12-16 24-16 24s-16-12-16-24a16 16 0 0 1 32 0Z"/>
+      <circle cx="104" cy="50" r="6" fill="white"/>
+      <circle cx="104" cy="50" r="3" fill="#0891b2"/>
+    </g>
+
+    <g opacity="0.4">
+      <path fill="#10b981" d="M20 80c0 9-12 18-12 18s-12-9-12-18a12 12 0 0 1 24 0Z"/>
+      <circle cx="8" cy="80" r="4.5" fill="white"/>
+      <circle cx="8" cy="80" r="2.25" fill="#059669"/>
+    </g>
+  </g>
+
+  <!-- Main title -->
+  <text x="350" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="120" font-weight="800" fill="white">
+    TRVLR
+  </text>
+
+  <!-- Subtitle -->
+  <text x="350" y="340" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="400" fill="#94a3b8">
+    Your AI Travel Assistant
+  </text>
+
+  <!-- Features list -->
+  <g transform="translate(350, 380)">
+    <text y="30" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#e2e8f0">
+      🗺️ Discover amazing places
+    </text>
+    <text y="70" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#e2e8f0">
+      🤖 AI-powered recommendations
+    </text>
+    <text y="110" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#e2e8f0">
+      📍 Interactive travel maps
+    </text>
+  </g>
+
+  <!-- Bottom accent -->
+  <rect x="0" y="580" width="1200" height="50" fill="url(#accentGrad)" opacity="0.1"/>
+
+  <!-- Corner decorations -->
+  <path d="M0 0 L50 0 L0 50 Z" fill="url(#accentGrad)" opacity="0.1"/>
+  <path d="M1150 0 L1200 0 L1200 50 Z" fill="url(#accentGrad)" opacity="0.1"/>
+</svg>
