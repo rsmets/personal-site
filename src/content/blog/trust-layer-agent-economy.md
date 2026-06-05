@@ -54,7 +54,7 @@ Today the most sophisticated scorer in the space is Coinbase's Bazaar, and its r
 
 This is the same mistake the centralized identity world made, and it's exactly the failure mode my white paper was reacting to. A trust score that a single rail owner controls is a trust score that serves the rail owner. The instant an agent transacts across a different rail, x402 here, AP2 there, something not yet invented next year, a vendor-locked score is worthless.
 
-The version that actually matters is **portable**: a signed attestation the agent carries with it across rails and platforms, verifiable by anyone, owned by no one. This is, after a decade, finally the _right_ application for Verifiable Credentials and DIDs. Not because the buzzwords aged well, but because the agent economy produces the one thing human identity never could, an objective behavioral history worth attaching to a portable, self-controlled identifier. The primitive was waiting for the right substrate the whole time.
+The version that actually matters is **portable**: a signed attestation the agent carries with it across rails and platforms, verifiable by anyone, owned by no one. This is, after a decade, finally the _right_ application for Verifiable Credentials and DIDs. Not because the buzzwords aged well, but because the agent economy produces the one thing human identity never could—an objective behavioral history worth attaching to a portable, self-controlled identifier. The primitive was waiting for the right substrate the whole time.
 
 And notably, no single rail owner can credibly build this, because neutrality is the product. Coinbase won't trust Google's scores and Google won't trust Coinbase's. Cross-rail trust has to come from someone who isn't a rail.
 
@@ -68,4 +68,4 @@ So we have a genuine chicken-and-egg: **high-value autonomous commerce won't hap
 
 The plumbing question, _how do agents pay?_, is solved. The question that decides whether any of it amounts to a real economy is older than blockchains, older than the internet: _when a stranger offers to transact, how do you know they're worth trusting?_ We just have to answer it for counterparties that spin up in milliseconds, settle irreversibly, and lie about half the time.
 
-This the layer that my I can't help but think my years of building identity systems makes me uniquely tailored to tackle. Is this space viability ready to build a business in?
+This is the layer my years of building identity systems have uniquely prepared me to tackle. Whether the space is viable enough to build a business in yet—that is the harder question.
