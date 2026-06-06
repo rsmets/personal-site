@@ -16,7 +16,7 @@ tags:
 
 For the last year the conversation around agentic commerce has been about plumbing. How do agents pay each other? [x402](https://www.x402.org/) resurrected the dormant HTTP 402 status code into a stablecoin payment protocol, won itself a Linux Foundation home, and pulled in basically everyone who matters: Visa, Mastercard, Stripe, Google, AWS, Coinbase, Circle. Google's AP2 adopted x402 as its crypto rail rather than competing with it. The standards war is effectively over.
 
-To be honest about where attention went: since both landed around the same time last year, x402 has lived almost entirely in [MCP](/blog/mcp/)'s shadow. I get why. MCP solved connectivity—how agents reach tools and data—and the ecosystem poured its energy there. But x402 solves what commerce actually runs on: autonomous settlement. For a micro-payment-oriented agent economy—agents paying fractions of a cent per API call without a human in the loop—I think x402 will prove nearly as noteworthy as MCP did for interoperability.
+To be honest about where attention went: since both landed around the same time last year, x402 has lived almost entirely in [MCP](/blog/mcp/)'s shadow. I get why. MCP solved connectivity (how agents reach tools and data), and the ecosystem poured its energy there. But x402 solves what commerce actually runs on: autonomous settlement. For a micro-payment-oriented agent economy (agents paying fractions of a cent per API call without a human in the loop), I think x402 will prove nearly as noteworthy as MCP did for interoperability.
 
 So we can now make an agent pay another agent for an API call without a human in the loop. Great. Here is the question almost nobody is answering: **how does the buyer agent know the seller is any good?**
 
@@ -58,7 +58,7 @@ Today the most sophisticated scorer in the space is Coinbase's Bazaar, and its r
 
 This is the same mistake the centralized identity world made, and it's exactly the failure mode my white paper was reacting to. A trust score that a single rail owner controls is a trust score that serves the rail owner. The instant an agent transacts across a different rail, x402 here, AP2 there, something not yet invented next year, a vendor-locked score is worthless.
 
-The version that actually matters is **portable**: a signed attestation the agent carries with it across rails and platforms, verifiable by anyone, owned by no one. This is, after a decade, finally the _right_ application for Verifiable Credentials and DIDs. Not because the buzzwords aged well, but because the agent economy produces the one thing human identity never could—an objective behavioral history worth attaching to a portable, self-controlled identifier. The primitive was waiting for the right substrate the whole time.
+The version that actually matters is **portable**: a signed attestation the agent carries with it across rails and platforms, verifiable by anyone, owned by no one. This is, after a decade, finally the _right_ application for Verifiable Credentials and DIDs. Not because the buzzwords aged well, but because the agent economy produces the one thing human identity never could: an objective behavioral history worth attaching to a portable, self-controlled identifier. The primitive was waiting for the right substrate the whole time.
 
 And notably, no single rail owner can credibly build this, because neutrality is the product. Coinbase won't trust Google's scores and Google won't trust Coinbase's. Cross-rail trust has to come from someone who isn't a rail.
 
