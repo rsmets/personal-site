@@ -1,5 +1,5 @@
 ---
-title: "x402: When Your Customer Is an Agent, Who Do You Trust?"
+title: "x402: When Agents Transact, Who Do You Trust?"
 publishDate: 2026-06-05
 img:
 img_alt:
