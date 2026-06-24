@@ -13,7 +13,7 @@ tags:
   - AWS Bedrock
 ---
 
-[MTG Oracle](https://github.com/rsmets/mtg-oracle) is a Magic: The Gathering deck-building agent and card retrieval stack. On the surface it takes a plain-language brief, like "an aggressive red-white deck that can beat the current control meta," and returns a legal, tournament-aware 60-card deck with its reasoning shown. Underneath, it was my attempt to build a genuinely state-of-the-art retrieval-augmented agent the way I would want a production system built: prompts treated as versioned software, and quality treated as something you measure rather than assume.
+[MTG Oracle](https://themtgoracle.com) is a Magic: The Gathering deck-building agent and card retrieval stack. On the surface it takes a plain-language brief, like "an aggressive red-white deck that can beat the current control meta," and returns a legal, tournament-aware 60-card deck with its reasoning shown. Underneath, it was my attempt to build a genuinely state-of-the-art retrieval-augmented agent the way I would want a production system built: prompts treated as versioned software, and quality treated as something you measure rather than assume.
 
 It is [live](https://themtgoracle.com), deployed on Railway, with a React SPA front end, and the all the inference runs on AWS Bedrock.
 
