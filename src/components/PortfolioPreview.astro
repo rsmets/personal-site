@@ -19,7 +19,7 @@ const { data, slug } = Astro.props.project;
 		grid-template: auto 1fr / auto 1fr;
 		height: 11rem;
 		background: var(--gradient-subtle);
-		border: 1px solid var(--gray-800);
+		border: 1px solid var(--accent-overlay);
 		border-radius: 0.75rem;
 		overflow: hidden;
 		box-shadow: var(--shadow-sm);
@@ -27,11 +27,16 @@ const { data, slug } = Astro.props.project;
 		font-family: var(--font-brand);
 		font-size: var(--text-lg);
 		font-weight: 500;
-		transition: box-shadow var(--theme-transition);
+		transition:
+			box-shadow var(--theme-transition),
+			border-color var(--theme-transition),
+			transform var(--theme-transition);
 	}
 
 	.card:hover {
-		box-shadow: var(--shadow-md);
+		box-shadow: var(--glow-md);
+		border-color: var(--accent-regular);
+		transform: translateY(-2px);
 	}
 
 	.title {
@@ -39,9 +44,23 @@ const { data, slug } = Astro.props.project;
 		z-index: 1;
 		margin: 0.5rem;
 		padding: 0.5rem 1rem;
-		background: var(--gray-999);
-		color: var(--gray-200);
+		/* Glassmorphism title badge */
+		background: hsla(var(--gray-999-basis), 0.75);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		color: var(--accent-dark);
+		border: 1px solid var(--accent-overlay);
 		border-radius: 0.375rem;
+		letter-spacing: 0.03em;
+		text-transform: uppercase;
+		font-size: var(--text-sm);
+		transition: color var(--theme-transition), border-color var(--theme-transition), box-shadow var(--theme-transition);
+	}
+
+	.card:hover .title {
+		color: var(--accent-regular);
+		border-color: var(--accent-regular);
+		box-shadow: var(--glow-sm);
 	}
 
 	img {

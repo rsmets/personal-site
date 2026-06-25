@@ -172,8 +172,18 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		gap: 0.5rem;
 		align-items: center;
 		line-height: 1.1;
-		color: var(--gray-0);
+		color: var(--accent-dark);
 		text-decoration: none;
+		font-size: var(--text-base);
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		transition: color var(--theme-transition), text-shadow var(--theme-transition);
+	}
+
+	.site-title:hover,
+	.site-title:focus {
+		color: var(--accent-regular);
+		text-shadow: var(--glow-text);
 	}
 
 	.menu-button {
@@ -183,15 +193,21 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		border-radius: 999rem;
 		padding: 0.5rem;
 		font-size: 1.5rem;
-		color: var(--gray-300);
+		color: var(--accent-regular);
 		background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
 		box-shadow: var(--shadow-md);
+		transition: box-shadow var(--theme-transition);
+	}
+
+	.menu-button:hover {
+		box-shadow: var(--glow-sm);
 	}
 
 	.menu-button[aria-expanded='true'] {
-		color: var(--gray-0);
+		color: var(--accent-dark);
 		background: linear-gradient(180deg, var(--gray-600), transparent),
 			radial-gradient(var(--gray-900), var(--gray-800) 150%);
+		box-shadow: var(--glow-sm);
 	}
 
 	.menu-button[hidden] {
@@ -202,9 +218,10 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		position: absolute;
 		inset: -1px;
 		content: '';
-		background: var(--gradient-stroke);
+		background: linear-gradient(180deg, var(--accent-regular), var(--accent-dark));
 		border-radius: 999rem;
 		z-index: -1;
+		opacity: 0.6;
 	}
 
 	.menu-content {
@@ -222,18 +239,26 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		line-height: 1.2;
 		list-style: none;
 		padding: 2rem;
-		background-color: var(--gray-999);
-		border-bottom: 1px solid var(--gray-800);
+		/* Glassmorphism mobile menu */
+		background-color: hsla(var(--gray-999-basis), 0.85);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border-bottom: 1px solid var(--accent-overlay);
 	}
 
 	.link {
 		display: inline-block;
 		color: var(--gray-300);
 		text-decoration: none;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		font-size: var(--text-sm);
+		transition: color var(--theme-transition), text-shadow var(--theme-transition);
 	}
 
 	.link.active {
-		color: var(--gray-0);
+		color: var(--accent-dark);
+		text-shadow: var(--glow-text);
 	}
 
 	.menu-footer {
@@ -244,9 +269,13 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		justify-content: space-between;
 		gap: 0.75rem;
 		padding: 1.5rem 2rem 1.5rem 1.5rem;
-		background-color: var(--gray-999);
+		background-color: hsla(var(--gray-999-basis), 0.85);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
 		border-radius: 0 0 0.75rem 0.75rem;
-		box-shadow: var(--shadow-lg);
+		border: 1px solid var(--accent-overlay);
+		border-top: none;
+		box-shadow: var(--glow-sm);
 	}
 
 	.socials {
@@ -260,13 +289,14 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		display: flex;
 		padding: var(--icon-padding);
 		text-decoration: none;
-		color: var(--accent-dark);
-		transition: color var(--theme-transition);
+		color: var(--accent-regular);
+		transition: color var(--theme-transition), filter var(--theme-transition);
 	}
 
 	.social:hover,
 	.social:focus {
-		color: var(--accent-text-over);
+		color: var(--accent-dark);
+		filter: drop-shadow(0 0 6px var(--accent-regular));
 	}
 
 	.theme-toggle {
@@ -289,7 +319,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		}
 
 		.site-title {
-			font-size: var(--text-lg);
+			font-size: var(--text-base);
 		}
 
 		.menu-content {
@@ -301,19 +331,17 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 			flex-direction: row;
 			font-size: var(--text-sm);
 			border-radius: 999rem;
-			border: 0;
+			border: 1px solid var(--accent-overlay);
 			padding: 0.5rem 0.5625rem;
-			background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
-			box-shadow: var(--shadow-md);
+			/* Glassmorphism pill nav */
+			background: hsla(var(--gray-999-basis), 0.6);
+			backdrop-filter: blur(16px);
+			-webkit-backdrop-filter: blur(16px);
+			box-shadow: var(--glow-sm), var(--shadow-md);
 		}
 
 		.nav-items::before {
-			position: absolute;
-			inset: -1px;
-			content: '';
-			background: var(--gradient-stroke);
-			border-radius: 999rem;
-			z-index: -1;
+			display: none;
 		}
 
 		.link {
@@ -321,18 +349,21 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 			border-radius: 999rem;
 			transition:
 				color var(--theme-transition),
-				background-color var(--theme-transition);
+				background-color var(--theme-transition),
+				text-shadow var(--theme-transition);
 		}
 
 		.link:hover,
 		.link:focus {
-			color: var(--gray-100);
+			color: var(--accent-dark);
 			background-color: var(--accent-subtle-overlay);
 		}
 
 		.link.active {
 			color: var(--accent-text-over);
 			background-color: var(--accent-regular);
+			text-shadow: none;
+			box-shadow: var(--glow-sm);
 		}
 
 		.menu-footer {
@@ -342,6 +373,9 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 			align-items: center;
 			padding: 0;
 			background-color: transparent;
+			backdrop-filter: none;
+			-webkit-backdrop-filter: none;
+			border: none;
 			box-shadow: none;
 		}
 

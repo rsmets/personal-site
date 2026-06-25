@@ -21,15 +21,42 @@ const { href } = Astro.props;
 		line-height: 1.1;
 		border-radius: 999rem;
 		overflow: hidden;
+		/* Cyberpunk gradient: cyan → violet */
 		background: var(--gradient-accent-orange);
-		box-shadow: var(--shadow-md);
+		background-size: 200% 200%;
+		box-shadow: var(--glow-sm), var(--shadow-md);
 		white-space: nowrap;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		font-family: var(--font-brand);
+		font-weight: 600;
+		transition:
+			box-shadow var(--theme-transition),
+			transform var(--theme-transition),
+			background-position var(--theme-transition);
+		animation: gradient-shift 4s ease infinite;
 	}
 
 	@media (min-width: 20em) {
 		a {
-			font-size: var(--text-lg);
+			font-size: var(--text-md);
 		}
+	}
+
+	/* Scanline overlay */
+	a::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background: repeating-linear-gradient(
+			0deg,
+			transparent,
+			transparent 2px,
+			rgba(0, 0, 0, 0.05) 2px,
+			rgba(0, 0, 0, 0.05) 4px
+		);
+		z-index: 1;
 	}
 
 	/* Overlay for hover effects. */
@@ -40,6 +67,13 @@ const { href } = Astro.props;
 		pointer-events: none;
 		transition: background-color var(--theme-transition);
 		mix-blend-mode: overlay;
+		z-index: 2;
+	}
+
+	a:focus,
+	a:hover {
+		box-shadow: var(--glow-md), var(--shadow-md);
+		transform: translateY(-1px);
 	}
 
 	a:focus::after,
@@ -50,7 +84,7 @@ const { href } = Astro.props;
 	@media (min-width: 50em) {
 		a {
 			padding: 1.125rem 2.5rem;
-			font-size: var(--text-xl);
+			font-size: var(--text-lg);
 		}
 	}
 </style>

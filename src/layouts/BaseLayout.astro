@@ -107,6 +107,25 @@ const { title, description } = Astro.props;
 					/*header2*/ normal,
 					/*base*/ normal;
 			}
+
+			/* Futuristic grid overlay — subtle cyan mesh on dark, barely-there on light */
+			.backgrounds::after {
+				content: '';
+				position: fixed;
+				inset: 0;
+				pointer-events: none;
+				z-index: 0;
+				background-image:
+					linear-gradient(rgba(6, 182, 212, 0.04) 1px, transparent 1px),
+					linear-gradient(90deg, rgba(6, 182, 212, 0.04) 1px, transparent 1px);
+				background-size: 60px 60px;
+			}
+
+			:global(.theme-dark) .backgrounds::after {
+				background-image:
+					linear-gradient(rgba(34, 211, 238, 0.06) 1px, transparent 1px),
+					linear-gradient(90deg, rgba(34, 211, 238, 0.06) 1px, transparent 1px);
+			}
 			@media (forced-colors: active) {
 				/* Deactivate custom backgrounds for high contrast users. */
 				.backgrounds {
