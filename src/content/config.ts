@@ -14,4 +14,16 @@ export const collections = {
       img_alt: z.string().optional(),
     }),
   }),
+  blog: defineCollection({
+    type: "content",
+    schema: z.object({
+      title: z.string(),
+      description: z.string(),
+      publishDate: z.coerce.date(),
+      tags: z.array(z.string()),
+      // img and img_alt are optional; YAML parses blank values as null, so nullish() handles both null and undefined
+      img: z.string().nullish(),
+      img_alt: z.string().nullish(),
+    }),
+  }),
 };
